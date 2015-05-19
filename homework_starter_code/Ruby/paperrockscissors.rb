@@ -2,7 +2,7 @@
  # then returns a random choice from the computer and tells a user whether or not they won.
 
 # def question
- print "Choose Rock Paper or Scissors"
+ print "Choose Rock, Paper or Scissors"
  puts
  guess = gets.chomp.upcase
 
