@@ -9,9 +9,13 @@
 awesome_things = ['fly to Paris for vacation', 'win the lottery jackpot', 'binge watching Netflix', 'buying new kicks', 'eat a great meal']
 
 
-	awesome_things.each do |activity|
+def show_awesome_things(array)
+	array.each do |activity|
 		puts "Yes let's #{activity}"
 	end
+end
+
+show_awesome_things(awesome_things)
 
 
 
@@ -29,9 +33,10 @@ while adds == true
 		elsif answer == "N"
 			puts "You don't want to add anything. Thanks for making my job easier!"
 			adds = false
-			awesome_things.each do |activity|
-				puts "I would like to #{activity}"
-			end
+			# awesome_things.each do |activity|
+			# 	puts "I would like to #{activity}"
+			# end
+			show_awesome_things(awesome_things)
 		else 
 			puts "Sorry, that was not an answer. Please type 'y' for Yes and 'n' for No"
 			# print "I didn't understand your answer. Do you want to add another activity?"
