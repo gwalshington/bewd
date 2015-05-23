@@ -10,7 +10,7 @@ def guess_gender
 
 	result = Unirest.get "https://montanaflynn-gender-guesser.p.mashape.com/?name=#{name}",
 	  headers:{
-	    "X-Mashape-Key" => "WJQWvWJCdxmshaVi9mIDPwuxMtACp1dcCPRjsnHjjpsqBO7Atw",
+	    "X-Mashape-Key" => ENV["MASHAPE_KEY"],
 	    "Accept" => "application/json"
 	  }
 
