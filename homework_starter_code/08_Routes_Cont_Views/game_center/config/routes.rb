@@ -9,4 +9,10 @@ Rails.application.routes.draw do
 
   get '/toss', to: 'dice#new'
   get '/toss/:roll', to: 'dice#result', as: 'roll'
+
+  get '/coin', to: 'coin#new'
+  get '/coin/:flip', to: 'coin#result', as: 'flip'
+
+  get '/card', to: 'card#new'
+  get '/card/deal', to: 'card#deal', as: 'deal'
 end

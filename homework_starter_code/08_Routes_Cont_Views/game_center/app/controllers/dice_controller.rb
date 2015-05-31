@@ -4,7 +4,8 @@ class DiceController < ApplicationController
 	end
 
 	def result
-		@their_roll = rand(1..6)
+		@their_roll = [rand(1..6), rand(1..6), rand(1..6)]
+		@computer_roll = [rand(1..6), rand(1..6), rand(1..6)]
 	end
 
 end
