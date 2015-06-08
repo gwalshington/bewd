@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Form name:</strong>
+  <%= @form.form_name %>
+</p>
+
+<p>
+  <strong>Form link:</strong>
+  <%= @form.form_link %>
+</p>
+
+<p>
+  <strong>Municipality name:</strong>
+  <%= @form.municipality_name %>
+</p>
+
+<p>
+  <strong>Municipality state:</strong>
+  <%= @form.municipality_state %>
+</p>
+
+<p>
+  <strong>Form department:</strong>
+  <%= @form.form_department %>
+</p>
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>
