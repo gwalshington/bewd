@@ -1,4 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h1>Hello</h1>
+<p>list of depts...</p>
+
+
+
+<%= link_to %>
+
+
+
+
+
+
+
+<!-- <p id="notice"><%= notice %></p>
+
+
 
 <h1>Listing Forms</h1>
 
@@ -14,20 +29,19 @@
   </thead>
 
   <tbody>
-    <% @forms.each do |form| %>
+    <%# @forms.each do |form| %>
       <tr>
         <td><%= link_to form.form_name, form.form_link %></td>
         <td><%= form.municipality_name %></td>
         <td><%= form.municipality_state %></td>
         <td><%= form.form_department %></td>
-        <td><%= link_to 'Show', form %></td>
-        <td><%= link_to 'Edit', edit_form_path(form) %></td>
-        <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=# link_to 'Show', form %></td>
+        <td><%= #link_to 'Edit', edit_form_path(form) %></td>
+        <td><%=# link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
-<br>
+<br> -->
 
-<%= link_to 'New Form', new_form_path %>

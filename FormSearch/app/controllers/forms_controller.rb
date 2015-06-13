@@ -8,18 +8,28 @@ class FormsController < ApplicationController
 
   def index
     @forms = Form.all
+    
+  end
+  def list
+    @form = Form.find(params[:form_department])
   end
 
   def welcome
-    @forms = Form.all
+    
   end
+
+  def recent
+    @forms = Form.last(10)
+  end
+
+  
 
   # GET /forms/1
   # GET /forms/1.json
   def show
   end
 
-
+  
 
   # GET /forms/new
   def new
@@ -70,11 +80,15 @@ class FormsController < ApplicationController
     end
   end
 
+  def find_departments
+    Deparment.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_form
-      @form = Form.find(params[:id])
-    end
+     def set_form
+       @form = Form.find(params[:id])
+     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params

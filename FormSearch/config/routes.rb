@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'forms#welcome'
 
   get '/forms', to: 'forms#index'
+  get '/forms/list/department', to: 'forms#list', as: 'list'
+  get '/recent', to: 'forms#recent'
+
 
   # get '/list' as: 'forms#list'
   # The priority is based upon order of creation: first created -> highest priority.
