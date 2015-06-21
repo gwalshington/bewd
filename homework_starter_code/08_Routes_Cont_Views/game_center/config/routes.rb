@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   get '/card', to: 'card#new'
   get '/card/deal', to: 'card#deal', as: 'deal'
+
+  get '/jokes', to: 'jokes#new'
+  get '/jokes/joke', to: 'jokes#joke', as: 'joke'
 end

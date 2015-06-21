@@ -1,0 +1,17 @@
+<h1>new movie page</h1>
+
+
+<%= form_for Movie.new do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br>
+
+	<%= f.label :year_released %>
+	<%= f.text_field :year_released %><br>
+
+	<%= f.label :decription %>
+	<%= f.text_area :description %><br>
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Hello! Welcome to Ritly</h1>
+
+<h3>What would you like to do?</h3>
+
+<% if user_signed_in? %>
+	<%= link_to "Create a Ritly URL", new_url_path %>
+<% else %>
+	<p>Please <%= link_to "sign in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %>.</p>
+<% end %>
