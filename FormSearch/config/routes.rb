@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :forms
+  resources :municipalities
 
   root 'forms#welcome'
 
   get '/forms', to: 'forms#index'
-  get '/forms/list/department', to: 'forms#list', as: 'list'
+  get '/forms/:department', to: 'forms#list', as: 'list'
   get '/recent', to: 'forms#recent'
+  get '/department', to: 'forms#department', as: 'department'
+  # get '/department/:department', to: 'forms#department'
+  resources :forms do
+    member do
+      put "like", to: "forms#upvote"
+      put "dislike", to: "forms#downvote"
+    end
+  end
+
 
 
   # get '/list' as: 'forms#list'

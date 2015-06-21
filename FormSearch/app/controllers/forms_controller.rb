@@ -10,8 +10,9 @@ class FormsController < ApplicationController
     @forms = Form.all
     
   end
-  def list
-    @form = Form.find(params[:form_department])
+  def department
+    @form = Form.all
+    @department = Form::DEPARTMENT
   end
 
   def welcome
@@ -29,7 +30,11 @@ class FormsController < ApplicationController
   def show
   end
 
-  
+  def upvote
+    @form = Form.find(params[:id])
+    @form.upvote_by current_user
+    redirect_to forms_path
+  end
 
   # GET /forms/new
   def new

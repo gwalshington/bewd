@@ -2,6 +2,11 @@
 <html>
 <header>
 <p><%= link_to 'HOME', root_path %></p>
+<% if user_signed_in? %>
+	<%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+<% else %>
+	<%= link_to "SIGN IN", new_user_session_path %>
+<% end %>
 </header>
 
 <head>
@@ -11,8 +16,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= flash[:notice] if flash[:notice] %>
+	<%= flash[:alert] if flash[:alert] %>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
 </html>
