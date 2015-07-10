@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Classifieds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classifieds.each do |classified| %>
+      <tr>
+        <td><%= classified.title %></td>
+        <td><%= classified.description %></td>
+        <td><%= classified.price %></td>
+        <td><%= classified.category %></td>
+        <td><%= classified.user %></td>
+        <td><%= link_to 'Show', classified %></td>
+        <td><%= link_to 'Edit', edit_classified_path(classified) %></td>
+        <td><%= link_to 'Destroy', classified, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Classified', new_classified_path %>

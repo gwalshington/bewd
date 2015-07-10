@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @museum.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @museum.city %>
+</p>
+<% @museum.paintings.each do |painting| %>
+		<%= image_tag painting.image %>
+<% end %>
+
+<%= link_to 'Edit', edit_museum_path(@museum) %> |
+<%= link_to 'Back', museums_path %>

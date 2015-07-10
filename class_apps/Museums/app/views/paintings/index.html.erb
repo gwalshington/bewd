@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Museums', museums_path %>
+<%= link_to 'Artists', artists_path %>
+
+<h1>Listing Paintings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Style</th>
+      <th>Image</th>
+      <th>Artist</th>
+      <th>Museum</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paintings.each do |painting| %>
+    <div>
+      <tr>
+        <td><%= painting.title %></td>
+        <td><%= painting.year %></td>
+        <td><%= painting.style %></td>
+        <td class="image"><%= image_tag painting.image %></td>
+        <td><%= painting.artist.name %></td>
+        <td><%= painting.museum.name %></td>
+        <td><%= link_to 'Show', painting %></td>
+        <td><%= link_to 'Edit', edit_painting_path(painting) %></td>
+        <td><%= link_to 'Destroy', painting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Painting', new_painting_path %>
