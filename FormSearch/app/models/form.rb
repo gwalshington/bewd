@@ -1,6 +1,5 @@
 class Form < ActiveRecord::Base
-	belongs_to :municipality, :class_name => "Municipality", :foreign_key => "municipality_id"
-	belongs_to :department
+	belongs_to :municipality
 	acts_as_votable
 	
 

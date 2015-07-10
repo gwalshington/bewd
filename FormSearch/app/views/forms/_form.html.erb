@@ -20,12 +20,7 @@
     <%= f.text_field :form_link %>
   </div>
   <div class="field">
-    <%= f.label :municipality_name %><br>
-    <%= f.text_field :municipality_name %>
-  </div>
-  <div class="field">
-    <%= f.label :municipality_state %><br>
-    <%= f.collection_select :municipality_state, Form::STATE, :to_s, :to_s, :include_blank => true %>
+    <%= f.collection_select(:municipality_id, Municipality.all, :id, :name) %><br>
   </div>
   <div class="field">
     <%= f.label :form_department %><br>

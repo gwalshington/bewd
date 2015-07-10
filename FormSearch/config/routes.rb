@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :languages
   devise_for :users
   resources :forms
   resources :municipalities

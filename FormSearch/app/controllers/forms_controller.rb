@@ -1,6 +1,7 @@
 class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
+
   # GET /forms
   # GET /forms.json
   
@@ -8,6 +9,7 @@ class FormsController < ApplicationController
 
   def index
     @forms = Form.all
+    
     
   end
   def department
@@ -49,7 +51,6 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(form_params)
-
     respond_to do |format|
       if @form.save
         format.html { redirect_to @form, notice: 'Form was successfully created.' }
@@ -97,6 +98,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:form_name, :form_link, :municipality_name, :municipality_state, :form_department)
+      params.require(:form).permit(:form_name, :form_link, :form_department, :municipality_id)
     end
 end

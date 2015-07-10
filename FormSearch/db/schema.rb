@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621204434) do
+ActiveRecord::Schema.define(version: 20150624002718) do
 
   create_table "forms", force: :cascade do |t|
     t.string   "form_name"
     t.string   "form_link"
-    t.string   "municipality_name"
-    t.string   "municipality_state"
     t.string   "form_department"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "municipality_id"
   end
+
+  add_index "forms", ["municipality_id"], name: "index_forms_on_municipality_id"
 
   create_table "municipalities", force: :cascade do |t|
     t.string   "name"
