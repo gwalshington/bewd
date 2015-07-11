@@ -1,0 +1,31 @@
+<%= form_for(@municipality) do |f| %>
+  <% if @municipality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@municipality.errors.count, "error") %> prohibited this municipality from being saved:</h2>
+
+      <ul>
+      <% @municipality.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+    <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.collection_select :state, Municipality::STATE, :to_s, :to_s, :include_blank => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add Municipality"%>
+  </div>
+<% end %>
+
+
