@@ -13,11 +13,11 @@
       <%= form_for 'forms_path', method: :get, :class => "col-lg-6 form-inline" do %>
        <!--  <div class="col-lg-6"> -->
         
-        <%= text_field_tag :query, params[:query], :class => "input-medium search-query" %>
+        <%= text_field_tag :query, params[:query] %>
         
           <!-- <span class="input-group-btn"> -->
         
-            <%= submit_tag "Search", :form_name => nil, :class => "btn btn-default" %>
+            <%= submit_tag "Search", :form_name => nil%>
        
           <!-- </span> -->
         
