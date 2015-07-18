@@ -7,7 +7,8 @@ class Form < ActiveRecord::Base
 	
 
 	def self.search_for(query)
-		where('form_name LIKE :query', query: "%#{query}")
+		where(:all, :conditions => ['UPPER(form_name) LIKE ?', "%#{query.upcase}%"])
+		#where('form_name LIKE :query', query: "%#{query}")
 	end
 	
 end
