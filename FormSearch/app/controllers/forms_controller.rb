@@ -8,10 +8,20 @@ class FormsController < ApplicationController
 
 
   def index
-    @forms = Form.all
-    
-    
+
+    # @forms = Form.all
+
+    if params[:query].present?
+      @forms = Form.search_for(params[:query])
+      # @municipalities = Municipality.where(form_name: @forms.form_name)
+      
+    else
+      @forms = Form.all
+    end
   end
+
+    
+
   def department
     @form = Form.all
     @department = Form::DEPARTMENT

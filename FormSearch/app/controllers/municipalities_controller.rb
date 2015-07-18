@@ -2,13 +2,12 @@ class MunicipalitiesController < ApplicationController
   before_action :set_municipality, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /municipalities
-  # GET /municipalities.json
+
   def index
     @states = Municipality::STATE
-     
     
-     
+
+    
       if params[:state].present?
        @state = params[:state]
        @municipalities = Municipality.where(state: @state)
@@ -16,35 +15,21 @@ class MunicipalitiesController < ApplicationController
        @state = Municipality.select('DISTINCT state')
        @municipalities = Municipality.all
      end
+     
    end
-    #
-    #@state = Municipality.select('DISTINCT state')
-  #   @state = Municipality.state
-     #if params[:id]
-       #@municipality = (Municipality.find(params[:id]) && @state == Municipality.state)
-       #@municipalities =  Municipality.where(@state)
-       #@state = municipalities.state
-     #else
-       #@municipalities = Municipality.all
-     #end
 
-  # GET /municipalities/1
-  # GET /municipalities/1.json
   def show
   end
 
-  # GET /municipalities/new
   def new
+    
     @municipality = Municipality.new
     @state = Municipality::STATE
   end
 
-  # GET /municipalities/1/edit
   def edit
   end
 
-  # POST /municipalities
-  # POST /municipalities.json
   def create
     @municipality = Municipality.new(municipality_params)
 
@@ -59,8 +44,7 @@ class MunicipalitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /municipalities/1
-  # PATCH/PUT /municipalities/1.json
+
   def update
     respond_to do |format|
       if @municipality.update(municipality_params)
@@ -73,8 +57,6 @@ class MunicipalitiesController < ApplicationController
     end
   end
 
-  # DELETE /municipalities/1
-  # DELETE /municipalities/1.json
   def destroy
     @municipality.destroy
     respond_to do |format|

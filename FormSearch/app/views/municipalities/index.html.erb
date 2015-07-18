@@ -12,11 +12,14 @@
   <tbody>
     <div>
       <p>By State:</p>
-       <%= form_tag('/municipalities' ,:method=>:get) do %>                          
-      <%= select_tag "state", options_for_select(@states.map { |state| state } )%>    
+      <div class="form-group">
+       <%= form_tag('/municipalities', :method=>:get) do %>                          
+      <%= select_tag "state", options_for_select(@states.map { |state| state } ) %>
+
       <%= submit_tag "Search" %>
+      <% end %>
+      </div>
       
-<% end %>
     </div>
     <div>
     <% @municipalities.each do |municipality| %>

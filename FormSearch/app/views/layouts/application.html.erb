@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
+
+
+<html lang="en">
+<div class="container">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
 <header>
-<p><%= link_to 'HOME', root_path %></p>
+<ul class="nav nav-pills">
+	<li role="presentation"><%= link_to 'HOME', root_path %></li>
 <% if user_signed_in? %>
-	<%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+	<li role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
 <% else %>
-	<%= link_to "SIGN IN", new_user_session_path %>
+	<li role="presentation"><%= link_to "SIGN IN", new_user_session_path %></li>
 <% end %>
+</ul>
 </header>
 
 <head>
@@ -22,4 +34,6 @@
 	<%= yield %>
 
 </body>
+</div>
 </html>
+
