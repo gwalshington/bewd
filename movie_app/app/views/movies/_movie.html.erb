@@ -1,0 +1,7 @@
+<div class="movie">
+	<% posters = Omdb::Api.new.search(movie.title) %>
+	<%= posters[:poster] %>
+	<h3><%= link_to movie.title, movie_path(movie.id) %></h3>
+	<p><%= movie.description %></p>
+	<p><%= movie.year_released %></p>
+</div>

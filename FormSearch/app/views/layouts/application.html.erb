@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<div class="container">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+<ul class="nav nav-pills">
+	<li role="presentation"><%= link_to 'HOME', root_path %></li>
+<% if user_signed_in? %>
+	<li role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+<% else %>
+	<li role="presentation"><%= link_to "SIGN IN", new_user_session_path %></li>
+<% end %>
+</ul>
+</header>
+
+<head>
+  <title>FormSearch</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= flash[:notice] if flash[:notice] %>
+	<%= flash[:alert] if flash[:alert] %>
+
+	<%= yield %>
+
+</body>
+</div>
+</html>
+

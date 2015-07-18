@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form_name: MyString
+  form_link: MyString
+  municipality_name: MyString
+  municipality_state: MyString
+  form_department: MyString
+
+two:
+  form_name: MyString
+  form_link: MyString
+  municipality_name: MyString
+  municipality_state: MyString
+  form_department: MyString

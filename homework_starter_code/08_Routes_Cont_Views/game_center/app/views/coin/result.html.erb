@@ -1,0 +1,14 @@
+<h1>The coin landed on...</h1>
+
+<p><%= image_tag("coin/#{@computer_flip}.jpg") %></p>
+
+<br>
+<br>
+
+<% if @computer_flip == @their_flip %>
+	<h3>You win!</h3>
+<% else %>
+	<h3>You lose.</h3>
+<% end %>
+
+<p><%= link_to "Play Again", coin_path	%></p>

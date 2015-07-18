@@ -1,0 +1,6 @@
+<h1>Hello!</h1>
+<h3>Welcome to secret number! Pick a number.</h3>
+
+<% for number in (1..5) do %>
+	<%= link_to image_tag("secret_numbers/#{number}.jpg"), choice_path(number) %>
+<% end %>

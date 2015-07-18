@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+
+<p id="notice"><%= notice %></p>
+
+<div class="panel-heading">
+  <p>
+  <strong>Form name:</strong>
+  <%= @form.form_name %>
+  </p>
+</div>
+
+<div class="panel-body">
+<p>
+  <strong>Form link:</strong>
+  <%= @form.form_link %>
+</p>
+</div>
+
+<div class="panel-body">
+<p>
+  <strong>Municipality name:</strong>
+  <%= @form.municipality.name %>
+</p>
+</div>
+
+<p>
+  <strong>Municipality state:</strong>
+  <%= @form.municipality.state %>
+</p>
+
+<p>
+  <strong>Form department:</strong>
+  <%= @form.form_department %>
+</p>
+</div>
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Municipalities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <div>
+      <p>By State:</p>
+      <div class="form-group">
+       <%= form_tag('/municipalities', :method=>:get) do %>                          
+      <%= select_tag "state", options_for_select(@states.map { |state| state } ) %>
+
+      <%= submit_tag "Search" %>
+      <% end %>
+      </div>
+      
+    </div>
+    <div>
+    <% @municipalities.each do |municipality| %>
+      <tr>
+        <td><%= link_to municipality.name, municipality_path(municipality) %></td>
+        <td><%= link_to 'Show', municipality %></td>
+        <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
+        <td><%= link_to 'Destroy', municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </div>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Municipality', new_municipality_path %>
+
+
+<!-- create a dropdown of the states
+     
+ -->
