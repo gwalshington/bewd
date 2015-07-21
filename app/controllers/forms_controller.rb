@@ -14,7 +14,7 @@ class FormsController < ApplicationController
     if params[:query].present?
 
       query = params[:query]
-      @forms = Form.where("form_name LIKE ?", "%#{query}%")
+      @forms = Form.where("lower(form_name) LIKE ?", "%#{query.downcase}%")
       
       #@forms = Form.search_for(params[:query])
       # @municipalities = Municipality.where(form_name: @forms.form_name)
