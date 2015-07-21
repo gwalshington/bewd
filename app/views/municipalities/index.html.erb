@@ -25,9 +25,11 @@
     <% @municipalities.each do |municipality| %>
       <tr>
         <td><%= link_to municipality.name, municipality_path(municipality) %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Show', municipality %></td>
         <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
         <td><%= link_to 'Destroy', municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
     </div>
