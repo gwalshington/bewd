@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624002718) do
+ActiveRecord::Schema.define(version: 20150727185516) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "department"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "forms", force: :cascade do |t|
     t.string   "form_name"
     t.string   "form_link"
-    t.string   "form_department"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "municipality_id"

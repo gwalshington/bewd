@@ -1,5 +1,6 @@
 class Form < ActiveRecord::Base
 	belongs_to :municipality
+	
 	acts_as_votable
 	
 

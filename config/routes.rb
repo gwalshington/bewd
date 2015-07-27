@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :departments
   resources :languages
   devise_for :users
   resources :forms
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get '/forms', to: 'forms#index'
   get '/forms/:department', to: 'forms#list', as: 'list'
   get '/recent', to: 'forms#recent'
-  get '/department', to: 'forms#department', as: 'department'
+  
   # get '/department/:department', to: 'forms#department'
   resources :forms do
     member do

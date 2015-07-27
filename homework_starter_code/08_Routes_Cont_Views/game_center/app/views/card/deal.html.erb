@@ -1,9 +1,0 @@
-<h1>Your hand is...</h1>
-
-
-<% @hand = @deck.sample(5) %>
-
-
-<% @deck.sample(5).each do |card| %>
- <%= image_tag("deck/#{card}.jpg") %>
-<% end %>
