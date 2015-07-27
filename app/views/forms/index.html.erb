@@ -47,7 +47,7 @@
         <td><%= link_to form.form_name, form.form_link %></td>
         <td><%= form.municipality.name %></td>
         <td><%= form.municipality.state %></td>
-        <td><%#= form.form_department %></td>
+        <td><%= form.department.department %></td>
         <% if user_signed_in? %>
         <td><%#= link_to "upvote", like_form_path(form), method: :put %>
         <td><%= link_to 'Show', form %></td>

@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :form_department %><br>
-    <%= f.collection_select :form_department, Form::DEPARTMENT, :to_s, :to_s %>
+    <%= f.collection_select :department_id, Department.order(:department), :id, :department %>
   </div>
   <div class="actions">
     <%= f.submit "Add Form"%>

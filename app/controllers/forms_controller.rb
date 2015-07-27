@@ -55,6 +55,7 @@ class FormsController < ApplicationController
   # GET /forms/new
   def new
     @form = Form.new
+
   end
 
   # GET /forms/1/edit
@@ -64,6 +65,7 @@ class FormsController < ApplicationController
   # POST /forms
   # POST /forms.json
   def create
+    @department = Department.all
     @form = Form.new(form_params)
     respond_to do |format|
       if @form.save
@@ -108,10 +110,13 @@ class FormsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
      def set_form
        @form = Form.find(params[:id])
+       #@department = Department.all
+
+       #@department = Department.where(:department_id)
      end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:form_name, :form_link, :form_department, :municipality_id)
+      params.require(:form).permit(:form_name, :form_link, :department_id, :municipality_id)
     end
 end
