@@ -32,7 +32,7 @@ class FormsController < ApplicationController
   end
 
   def welcome
-    
+    @forms = Form.last(10)
   end
 
   def recent
