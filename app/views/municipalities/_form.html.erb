@@ -23,6 +23,10 @@
     <%= f.label :state %><br>
     <%= f.collection_select :state, Municipality::STATE, :to_s, :to_s, :include_blank => true %>
   </div>
+  <div class="field">
+    <%= f.label :population %><br>
+    <%= f.number_field :population %>
+  </div>
   <div class="actions">
     <%= f.submit "Add Municipality"%>
   </div>

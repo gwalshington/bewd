@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Municipalities</h1>
+<h1 class="panel-heading">Municipalities:</h1>
 
-<table>
+
+<table class="table table-hover">
   <thead>
     <tr>
+      <th>Municipality</th>
+      <th>State</th>
+      <th>Population</th>
       <th colspan="3"></th>
     </tr>
   </thead>
+  </div>
 
   <tbody>
     <div>
@@ -25,6 +30,8 @@
     <% @municipalities.each do |municipality| %>
       <tr>
         <td><%= link_to municipality.name, municipality_path(municipality) %></td>
+        <td><%= municipality.state %></td>
+        <td><%= municipality.population %></td>
         <% if user_signed_in? %>
         <td><%= link_to 'Show', municipality %></td>
         <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
@@ -37,6 +44,9 @@
 </table>
 
 <br>
+
+<br>
+
 
 <%= link_to 'New Municipality', new_municipality_path %>
 
