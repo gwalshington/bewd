@@ -47,8 +47,9 @@
 
 <br>
 
-
+<% if user_signed_in? %>
 <%= link_to 'New Municipality', new_municipality_path %>
+<% end %>
 
 
 <!-- create a dropdown of the states
