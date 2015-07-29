@@ -11,9 +11,16 @@ Rails.application.configure do
   config.eager_load = true
  
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  #config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  
+  #config.action_mailer.default_url_options = { :host => 'http://example.com'}
+
+#   config.action_mailer.default_url_options = { 
+#     :host => "http://form-search.herokuapp.com/", 
+#     :protocol => 'https' 
+# }
+
+
   config.assets.precompile += %w(application.css bootstrap_and_overrides.css bootstrap_and_overrides.css.less forms.css languages.scss scaffolds.scss)
   config.assets.precompile += %w(application.js bootstrap.js.coffee forms.coffee languages.coffee)
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -29,7 +36,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-  config.relative_url_root = "https://"
+  #config.relative_url_root = "https://"
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
