@@ -18,7 +18,7 @@
   <tbody>
     <% @forms.each do |form| %>
       <tr>
-        <td><%= link_to form.form_name, form.form_link %></td>
+        <td><%= link_to form.form_name, url_to"http://#{form.form_link}" %></td>
         <td><%= form.municipality.name %></td>
         <td><%= form.municipality.state %></td>
 
