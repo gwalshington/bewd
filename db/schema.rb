@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728235957) do
+ActiveRecord::Schema.define(version: 20150802043938) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "department"
@@ -34,10 +34,33 @@ ActiveRecord::Schema.define(version: 20150728235957) do
   create_table "municipalities", force: :cascade do |t|
     t.string   "name"
     t.integer  "form_id"
-    t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "population"
+    t.integer  "state_id"
+  end
+
+  add_index "municipalities", ["state_id"], name: "index_municipalities_on_state_id"
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "resource"
+    t.string   "url"
+    t.integer  "state_id"
+    t.integer  "municipality_id"
+    t.integer  "department_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "genre"
+  end
+
+  add_index "resources", ["department_id"], name: "index_resources_on_department_id"
+  add_index "resources", ["municipality_id"], name: "index_resources_on_municipality_id"
+  add_index "resources", ["state_id"], name: "index_resources_on_state_id"
+
+  create_table "states", force: :cascade do |t|
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

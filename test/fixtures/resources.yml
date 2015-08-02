@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resource: MyString
+  type: 
+  url: MyString
+  state_id: 
+  municipality_id: 
+  department_id: 
+
+two:
+  resource: MyString
+  type: 
+  url: MyString
+  state_id: 
+  municipality_id: 
+  department_id: 

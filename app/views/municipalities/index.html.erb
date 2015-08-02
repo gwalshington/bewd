@@ -18,9 +18,8 @@
     <div>
       <p>By State:</p>
       <div class="form-group">
-       <%= form_tag('/municipalities', :method=>:get) do %>                          
-      <%= select_tag "state", options_for_select(@states.map { |state| state } ) %>
-
+       <%= form_tag('/municipalities', method: :get) do %>
+      <%= select_tag 'state_id', options_for_select(@states.map{ |s| [s.state, s.id] }) %>
       <%= submit_tag "Search" %>
       <% end %>
       </div>
@@ -30,7 +29,7 @@
     <% @municipalities.each do |municipality| %>
       <tr>
         <td><%= link_to municipality.name, municipality_path(municipality) %></td>
-        <td><%= municipality.state %></td>
+        <td><%= municipality.state.state %></td>
         <td><%= municipality.population %></td>
         <% if user_signed_in? %>
         <td><%= link_to 'Show', municipality %></td>

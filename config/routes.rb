@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :resources
+  resources :states
   resources :departments
   resources :languages
   devise_for :users

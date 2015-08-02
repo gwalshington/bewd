@@ -4,15 +4,17 @@ class MunicipalitiesController < ApplicationController
 
 
   def index
-    @states = Municipality::STATE
+      @states = State.all
     
 
     
-      if params[:state].present?
-       @state = params[:state]
-       @municipalities = Municipality.where(state: @state)
+      if params[:state_id].present?
+       @state = params[:state_id]
+
+      #@state = State.where(params[:state_id])
+       @municipalities = Municipality.where(state_id: @state)
      else
-       @state = Municipality.select('DISTINCT state')
+       @states = Municipality.select('DISTINCT state')
        @municipalities = Municipality.all
      end
      
@@ -24,7 +26,7 @@ class MunicipalitiesController < ApplicationController
   def new
     
     @municipality = Municipality.new
-    @state = Municipality::STATE
+    #@state = Municipality::STATE
   end
 
   def edit
@@ -69,12 +71,12 @@ class MunicipalitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_municipality
       @municipality = Municipality.find(params[:id])
-      @state = Municipality::STATE
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipality_params
-      params.require(:municipality).permit(:name, :state, :population)
+      params.require(:municipality).permit(:name, :state_id, :population)
     end
 
 

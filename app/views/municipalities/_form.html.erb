@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.collection_select :state, Municipality::STATE, :to_s, :to_s, :include_blank => true %>
+    <%= f.collection_select(:state_id, State.all, :id, :state) %>
+
+    <%#= f.collection_select :state, Municipality::STATE, :to_s, :to_s, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :population %><br>
