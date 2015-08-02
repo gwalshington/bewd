@@ -19,8 +19,8 @@
     <% @forms.each do |form| %>
       <tr>
         <td><%= link_to form.form_name, form.form_link %></td>
-        <td><%#= form.municipality.name %></td>
-        <td><%#= form.municipality.state %></td>
+        <td><%= form.municipality.name %></td>
+        <td><%= form.municipality.states.state %></td>
 
         <td><%= form.department.department %></td>
         <% if user_signed_in? %>

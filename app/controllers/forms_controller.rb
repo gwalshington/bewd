@@ -9,16 +9,11 @@ class FormsController < ApplicationController
 
   def index
 
-    # @forms = Form.all
 
     if params[:query].present?
 
       query = params[:query]
       @forms = Form.where("lower(form_name) LIKE ?", "%#{query.downcase}%")
-      
-      #@forms = Form.search_for(params[:query])
-      # @municipalities = Municipality.where(form_name: @forms.form_name)
-      
     else
       @forms = Form.all
     end
@@ -40,9 +35,6 @@ class FormsController < ApplicationController
   end
 
   
-
-  # GET /forms/1
-  # GET /forms/1.json
   def show
   end
 
@@ -52,18 +44,15 @@ class FormsController < ApplicationController
     redirect_to forms_path
   end
 
-  # GET /forms/new
   def new
     @form = Form.new
 
   end
 
-  # GET /forms/1/edit
   def edit
   end
 
-  # POST /forms
-  # POST /forms.json
+
   def create
     @department = Department.all
     @form = Form.new(form_params)
