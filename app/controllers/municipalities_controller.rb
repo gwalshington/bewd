@@ -14,7 +14,7 @@ class MunicipalitiesController < ApplicationController
       #@state = State.where(params[:state_id])
        @municipalities = Municipality.where(state_id: @state)
      else
-       @state = Municipality.select('DISTINCT state')
+       @states = Municipality.select('DISTINCT state_id')
        @municipalities = Municipality.all
      end
      
