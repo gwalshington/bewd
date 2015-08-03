@@ -2,7 +2,12 @@
 
 <h1 class="panel-heading">Municipalities:</h1>
 
-
+<div>
+       <%= form_tag('/municipalities', method: :get) do %>
+      <%= select_tag 'state_id', options_for_select(@states.map{ |s| [s.state, s.id] }) %>
+      <%= submit_tag "Search" %>
+      <% end %>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -12,19 +17,11 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  </div>
-
-  <tbody>
-    <div>
-      <p>By State:</p>
-      <div class="form-group">
-       <%= form_tag('/municipalities', method: :get) do %>
-      <%= select_tag 'state_id', options_for_select(@states.map{ |s| [s.state, s.id] }) %>
-      <%= submit_tag "Search" %>
-      <% end %>
-      </div>
+  
       
-    </div>
+  <tbody>
+    <div class="form-group">
+   
     <div>
     <% @municipalities.each do |municipality| %>
       <tr>
