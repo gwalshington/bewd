@@ -5,14 +5,15 @@ class MunicipalitiesController < ApplicationController
 
   def index
       @states = State.all
-    
-
+      
+      #@municipalities = Municipality.find(:all, :order => sort_order('state'))
     
       if params[:state_id].present?
        @state = params[:state_id]
 
       #@state = State.where(params[:state_id])
        @municipalities = Municipality.where(state_id: @state)
+       @forms = Form.where(municipality_id: @municipalities)
      else
        @states = State.all
        #@states = Municipality.select('DISTINCT state_id')
@@ -22,6 +23,10 @@ class MunicipalitiesController < ApplicationController
    end
 
   def show
+  end
+
+  def sort_order(population)
+      "#{(params[:c] || population.to_s).gsub(/[\s;'\"]/,'')} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
   end
 
   def new

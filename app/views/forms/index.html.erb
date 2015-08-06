@@ -4,20 +4,16 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-lg-6">
-      <%= form_for 'forms_path', method: :get, :class => "col-lg-6 form-inline" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control" %>
-  </div>
-            <%= submit_tag "Search", :form_name => nil, class: "btn btn-default"%>
-            <%= link_to "Reset", forms_path, class: "btn btn-default" %>
-          <!-- </span> -->
-        
-      <% end %>
 
+      <%= form_for 'forms_path', method: :get, :class => "col-lg-6 form-inline" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control col-lg-6" %>
+
+      <%= submit_tag "Search", :form_name => nil, class: "btn btn-default"%>
+      <%= link_to "Reset", forms_path, class: "btn btn-default" %>
+
+      <% end %>
 </div>
 
-<!--   </div> -->
-<!-- </div> -->
 
 <div class="panel-heading">All Forms</div>
 

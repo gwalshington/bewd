@@ -11,6 +11,9 @@ class Municipality < ActiveRecord::Base
 		where("state_id LIKE ?", "%#{state_id}%")
 	end
 
+	def sort_order(population)
+      "#{(params[:c] || default.to_s).gsub(/[\s;'\"]/,'')} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
+    end
 
 
 end
