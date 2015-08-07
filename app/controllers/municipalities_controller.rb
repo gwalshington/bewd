@@ -9,7 +9,7 @@ class MunicipalitiesController < ApplicationController
       #@municipalities = Municipality.find(:all, :order => sort_order('state'))
     
       if params[:state_id].present?
-       @state = params[:state_id]
+       @state = State.find(params[:state_id])
 
       #@state = State.where(params[:state_id])
        @municipalities = Municipality.where(state_id: @state)
