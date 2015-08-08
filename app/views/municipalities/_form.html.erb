@@ -14,20 +14,20 @@
 
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
-     <%= f.label :name %><br>
-     <%= f.text_field :name %>
+     <%#= f.label :name %><br>
+     <%= f.text_field :name, class: "form-control input-lg", placeholder: "Municipality Name"  %>
     </div>
   </div>
-  <div class="form-group form-group-lg">
-    <div class="col-sm-6">
-      <%= f.label :state %><br>
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%#= f.label :state %>
       <%= f.collection_select(:state_id, State.all, :id, :state) %>
     </div>
   </div>
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
-      <%= f.label :population %><br>
-      <%= f.number_field :population %>
+      <%#= f.label :population %>
+      <%= f.number_field :population, class: "form-control input-lg", placeholder: "Population"  %>
     </div>
   </div>
   <div class="actions">

@@ -13,12 +13,13 @@
   <% end %>
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
-      <%= f.label :department %><br>
-      <%= f.text_field :department %>
+      <%#= f.label :department %><br>
+      <%= f.text_field :department, class: "form-control input-lg", placeholder: "Department"  %>
     </div>
   </div>
-  <div class="actions", class: "btn btn-primary">
-      <%= f.submit %>
+  <div class="actions">
+      <%= f.submit "Save Department", class: "btn btn-primary" %>
   </div>
 <% end %>
+<br>
 </div>
