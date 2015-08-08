@@ -45,7 +45,10 @@ class FormsController < ApplicationController
   end
 
   def new
+
+
     @form = Form.new
+    
 
   end
 
@@ -54,6 +57,16 @@ class FormsController < ApplicationController
 
 
   def create
+
+
+    if params[:municipality_id].present?
+      @muni_id = Municipality.find(params[:municipality_id])
+    else
+      @muni_id = 1
+    end
+
+
+
     @department = Department.all
     @form = Form.new(form_params)
     respond_to do |format|

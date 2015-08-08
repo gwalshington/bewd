@@ -35,7 +35,8 @@
 
   <div class="form-group input-lg">
     <div class="controls">
-      <%= f.collection_select(:municipality_id, Municipality.all, :id, :name) %>
+      <%= f.collection_select(:municipality_id, Municipality.order(:name), :id, :name, {:selected =>
+params[:municipality_id]}) %>
     </div>
   </div>
     <div class="form-group input-lg">

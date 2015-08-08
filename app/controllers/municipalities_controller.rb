@@ -28,6 +28,7 @@ class MunicipalitiesController < ApplicationController
    end
 
   def show
+
   end
 
   def sort_order(population)
@@ -35,8 +36,11 @@ class MunicipalitiesController < ApplicationController
   end
 
   def new
+  
+      @municipality = Municipality.new
+
+
     
-    @municipality = Municipality.new
     #@state = Municipality::STATE
   end
 
@@ -44,6 +48,7 @@ class MunicipalitiesController < ApplicationController
   end
 
   def create
+    
     @municipality = Municipality.new(municipality_params)
 
     respond_to do |format|
