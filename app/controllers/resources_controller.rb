@@ -35,7 +35,7 @@ class ResourcesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
-
+        flash[:alert] = @resource.errors
       end
     end
   end
@@ -51,6 +51,7 @@ class ResourcesController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
+        flash[:alert] = @resource.errors
       end
     end
   end

@@ -1,5 +1,6 @@
-<form class="form-horizontal align-left">
+<div class="form-horizontal align-left">
 <%= form_for(@form) do |f| %>
+
   <% if @form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
@@ -18,6 +19,7 @@
 
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
+      <%#= f.label :form_name %>
       <%= f.text_field :form_name, class: "form-control input-lg", placeholder: "Form Name"  %>
     </div>
   </div>
@@ -25,6 +27,7 @@
 
   <div class="form-group form-group-lg">
       <div class="col-sm-6">
+        <%#= f.label :form_link %>
         <%= f.text_field :form_link, class: "form-control input-lg", placeholder: "https://city.seamlessdocs.com/f/linkname"  %>
       </div>
   </div>
@@ -44,9 +47,8 @@
   <div class="actions">
     <%= f.submit "Save Form", class: "btn btn-primary"%>
   </div>
-
-</form>
 <% end %>
-<br>
+</div>
+
 
 

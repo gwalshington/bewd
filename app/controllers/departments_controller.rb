@@ -34,6 +34,7 @@ class DepartmentsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @department.errors, status: :unprocessable_entity }
+        flash[:alert] = @department.errors
       end
     end
   end
