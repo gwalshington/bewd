@@ -48,9 +48,11 @@ class MunicipalitiesController < ApplicationController
       if @municipality.save
         format.html { redirect_to @municipality, notice: 'Municipality was successfully created.' }
         format.json { render :show, status: :created, location: @municipality }
+        flash[:notice] = 'Municipality was successfully created.'
       else
         format.html { render :new }
         format.json { render json: @municipality.errors, status: :unprocessable_entity }
+        flash[:alert] = @municipality.errors
       end
     end
   end
@@ -61,9 +63,11 @@ class MunicipalitiesController < ApplicationController
       if @municipality.update(municipality_params)
         format.html { redirect_to @municipality, notice: 'Municipality was successfully updated.' }
         format.json { render :show, status: :ok, location: @municipality }
+        flash[:notice] = 'Municipality was successfully updated.'
       else
         format.html { render :edit }
         format.json { render json: @municipality.errors, status: :unprocessable_entity }
+        flash[:alert] = @municipality.errors
       end
     end
   end
@@ -73,6 +77,7 @@ class MunicipalitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to municipalities_url, notice: 'Municipality was successfully destroyed.' }
       format.json { head :no_content }
+      flash[:notice] = 'Municipality was successfully destroyed.'
     end
   end
 

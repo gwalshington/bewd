@@ -58,11 +58,13 @@ class FormsController < ApplicationController
     @form = Form.new(form_params)
     respond_to do |format|
       if @form.save
-        format.html { redirect_to @form, notice: 'Form was successfully created.' }
+        format.html { redirect_to @form }
+        flash[:notice] = 'Form was successfully created.'
         format.json { render :show, status: :created, location: @form }
       else
         format.html { render :new }
         format.json { render json: @form.errors, status: :unprocessable_entity }
+        flash[:alert] = @form.errors
       end
     end
   end
@@ -73,10 +75,12 @@ class FormsController < ApplicationController
     respond_to do |format|
       if @form.update(form_params)
         format.html { redirect_to @form, notice: 'Form was successfully updated.' }
+        flash[:notice] = 'Form was successfully updated.'
         format.json { render :show, status: :ok, location: @form }
       else
         format.html { render :edit }
         format.json { render json: @form.errors, status: :unprocessable_entity }
+        flash[:alert] = @form.errors
       end
     end
   end
@@ -87,6 +91,7 @@ class FormsController < ApplicationController
     @form.destroy
     respond_to do |format|
       format.html { redirect_to forms_url, notice: 'Form was successfully destroyed.' }
+      flash[:notice] = 'Form was successfully destroyed.'
       format.json { head :no_content }
     end
   end
