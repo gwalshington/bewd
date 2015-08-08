@@ -5,7 +5,7 @@
 
 <div>
        <%= form_tag('/municipalities', method: :get) do %>
-      <%= select_tag 'state_id', options_for_select(@states.map{ |s| [s.state, s.id]}), class: "btn btn-default btn-lg dropdown-toggle"  %>
+      <%= select_tag 'state_id', options_for_select(@dropdown.map{ |s| [s.state, s.id]}), class: "btn btn-default btn-lg dropdown-toggle"  %>
       <%= submit_tag "Search", class: "btn btn-default" %>
       <%= link_to "Reset", municipalities_path, class: "btn btn-default" %>
       <% end %>
@@ -24,27 +24,66 @@
 
 
 <tbody>
+<div class="form-group">
+
+<div>
+<% @municipalities.each do |municipality| %>
+  <tr class="active">
+    <td><%= link_to municipality.name, municipality_path(municipality) %></td>
+    <td><%= municipality.state.state %></td>
+    <td><%= municipality.population %></td>
+    <% if user_signed_in? %>
+      <td><%= link_to 'Show', municipality %></td>
+      <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
+      <td><%= link_to 'Destroy', municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <% if @present != nil %>
+      <% municipality.forms.each do |form| %>
+      <tr>
+        <td class:"col-md-3 col-md-offset-3"></td>
+        <td class:"col-md-3 col-md-offset-3"><%= link_to form.form_name, form.form_link %></td>
+        <td class:"col-md-3 col-md-offset-3"><%= form.department.department %></td>
+        <td class:"col-md-3 col-md-offset-3"></td>
+      <% end %>  
+    <% end %>  
+      <tr>
+<% end %>
+</div>       
+
+
+
+
+
+
+
+
+<!-- <tbody>
     <div class="form-group">
    
     <div>
-<%if @state != nil %>
-<% @state.municipalities.each do |municipality| %>
+<%# if @state.municipalities != nil %>
+<%# @state.municipalities.each do |municipality| %>
   <tr class="active">
-        <td><%= link_to municipality.name, municipality_path(municipality) %></td>
-        <td><%= municipality.state.state %></td>
-        <td><%= municipality.population %></td>
+        <td><%#= link_to municipality.name, municipality_path(municipality) %></td>
+        <td><%#= municipality.state.state %></td>
+        <td><%#= municipality.population %></td>
   </tr>
-    
-      <% municipality.forms.each do |form| %>
+  <%#if @state != nil %>
+      <%# municipality.forms.each do |form| %>
   <tr>
     <td class:"col-md-3 col-md-offset-3"></td>
-    <td class:"col-md-3 col-md-offset-3"><%= link_to form.form_name, form.form_link %></td>
-    <td class:"col-md-3 col-md-offset-3"><%= form.department.department %></td>
+    <td class:"col-md-3 col-md-offset-3"><%#= link_to form.form_name, form.form_link %></td>
+    <td class:"col-md-3 col-md-offset-3"><%#= form.department.department %></td>
   </tr>
-  <% end %>
-<% end %>
-<% end %>
+  <%# end %>
+  <%# end %>
 
+<%# end %> -->
+
+
+
+
+<%# end %>
 
 
     <!-- <td class:"col-md-3 col-md-offset-3"><%#= link_to form.form_name, form.form_link %></td> -->

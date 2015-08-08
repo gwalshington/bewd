@@ -4,20 +4,23 @@ class MunicipalitiesController < ApplicationController
 
 
   def index
-      @states = State.all
-      
+      #@state = State.all
+      @present = params[:state_id]  
       #@municipalities = Municipality.find(:all, :order => sort_order('state'))
-    
+      @dropdown = State.all
       if params[:state_id].present?
-       @state = State.find(params[:state_id])
-
+       @state = params[:state_id]
+       #@state = State.all
       #@state = State.where(params[:state_id])
        @municipalities = Municipality.where(state_id: @state)
        @forms = Form.where(municipality_id: @municipalities)
      else
-       @states = State.all
+       @forms = nil
+        #@state = State.where(municipalitiy_id != nil)
+       @state = State.all
        #@states = Municipality.select('DISTINCT state_id')
        @municipalities = Municipality.all
+       #@municipalities = Municipality.where(state_id: @state)
      end
      
    end
