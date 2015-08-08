@@ -1,3 +1,4 @@
+<div class="form-horizontal align-left">
 <%= form_for(@department) do |f| %>
   <% if @department.errors.any? %>
     <div id="error_explanation">
@@ -10,12 +11,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :department %><br>
-    <%= f.text_field :department %>
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+      <%= f.label :department %><br>
+      <%= f.text_field :department %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions", class: "btn btn-primary">
+      <%= f.submit %>
   </div>
 <% end %>
+</div>

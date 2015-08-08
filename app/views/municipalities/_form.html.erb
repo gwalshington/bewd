@@ -1,3 +1,4 @@
+<div class="form-horizontal align-left">
 <%= form_for(@municipality) do |f| %>
   <% if @municipality.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +12,27 @@
     </div>
   <% end %>
 
-
-    <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+     <%= f.label :name %><br>
+     <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.collection_select(:state_id, State.all, :id, :state) %>
-
-    <%#= f.collection_select :state, Municipality::STATE, :to_s, :to_s, :include_blank => true %>
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+      <%= f.label :state %><br>
+      <%= f.collection_select(:state_id, State.all, :id, :state) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :population %><br>
-    <%= f.number_field :population %>
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+      <%= f.label :population %><br>
+      <%= f.number_field :population %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit "Save Municipality"%>
+    <%= f.submit "Save Municipality", class: "btn btn-primary"%>
   </div>
 <% end %>
-
+</div>
 
