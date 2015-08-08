@@ -13,8 +13,8 @@
 	<% if user_signed_in? %>
 		<h3>I want to:</h3>
 
-	<li><%= link_to 'Add a New Form', new_form_path, class: "btn btn-default" %></li>
-	<li><%= link_to 'Add a New Municipality', new_municipality_path, class: "btn btn-default" %></li>
+	<li><%= link_to 'Add a New Form', new_form_path, class: "btn btn-default" %></li> |
+	<li><%= link_to 'Add a New Municipality', new_municipality_path, class: "btn btn-default" %></li> |
 	<li><%= link_to 'Add a New Department', new_department_path, class: "btn btn-default" %></li>
 	<li><%#= link_to 'Manage States', states_path %></li>
 	<% end %>
