@@ -11,7 +11,9 @@ class MunicipalitiesController < ApplicationController
       @municipality = Municipality.all
       @count = @municipality.count
       if params[:state_id].present?
+
        @state = params[:state_id]
+       @state_name = State.find(@state)
        @municipalities = Municipality.where(state_id: @state)
        @forms = Form.where(municipality_id: @municipalities)
        

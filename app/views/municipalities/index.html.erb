@@ -4,7 +4,10 @@
 <h1 class="panel-heading">Municipalities</h1>
 </div>
 <div class:"col-md-3 float-left">
-  <h4>Total Governments: <span class="badge"><%= @count %></span></h4>
+  <h4>Total Governments: <%= @count %></h4>
+ <% if @present != nil %>
+  <h4>Total <%= @state_name.state %> Municipalities: <%= @count_state %></h4>
+ <% end %>
 </div>
 
 <div>
