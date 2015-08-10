@@ -1,10 +1,9 @@
 <div class="panel panel-default">
 
-
+<div class="jumbotron">
 <div class="panel-heading">
   <p>
-  <strong>Form name:</strong>
-  <%= @form.form_name %>
+  <h1><%= @form.form_name %></h1>
   </p>
 </div>
 
@@ -22,15 +21,20 @@
 </p>
 </div>
 
+<div class="panel-body">
 <p>
   <strong>Municipality state:</strong>
   <%= @form.municipality.state.state %>
 </p>
+</div>
 
+<div class="panel-body">
 <p>
   <strong>Form department:</strong>
   <%= @form.department.department %>
 </p>
+</div>
+</div>
 </div>
 <%= link_to 'Edit', edit_form_path(@form), class: "btn btn-default" %> |
 <%= link_to 'Back', forms_path, class: "btn btn-default" %>

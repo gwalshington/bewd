@@ -5,10 +5,11 @@ class MunicipalitiesController < ApplicationController
 
   def index
      
+
       @present = params[:state_id]  
       @dropdown = State.all
 
-      @municipality = Municipality.all
+      @municipality = Municipality.order(:name)
       @count = @municipality.count
       if params[:state_id].present?
 
@@ -21,7 +22,7 @@ class MunicipalitiesController < ApplicationController
      else
        @forms = nil
        @state = State.all
-       @municipalities = Municipality.all
+       @municipalities = Municipality.order(:name)
 
      end
      
@@ -48,7 +49,7 @@ class MunicipalitiesController < ApplicationController
   end
 
   def create
-    
+
     @municipality = Municipality.new(municipality_params)
 
     respond_to do |format|

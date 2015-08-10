@@ -54,7 +54,7 @@
 
   <tbody>
     <div class="form-group">
-          <% @municipalities.each do |municipality| %>
+          <% @municipalities.sort { |a,b| a.name <=> b.name }.each do |municipality| %>
             <tr class="active">
               <td><%= link_to municipality.name, municipality_path(municipality) %></td>
               <td><%= municipality.state.state %></td>

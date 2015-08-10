@@ -65,13 +65,14 @@ class FormsController < ApplicationController
       @muni_id = 1
     end
 
-
+    
 
     @department = Department.all
     @form = Form.new(form_params)
     respond_to do |format|
       if @form.save
-        format.html { redirect_to @form }
+        @municipality_id = @form.municipality_id
+        format.html { redirect_to municipality_path(@municipality_id) }
         flash[:notice] = 'Form was successfully created.'
         format.json { render :show, status: :created, location: @form }
       else
