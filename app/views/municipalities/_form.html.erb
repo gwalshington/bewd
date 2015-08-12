@@ -21,6 +21,12 @@
   <div class="form-group input-lg">
     <div class="controls">
       <%#= f.label :state %>
+      <%= f.collection_select(:municipality_type, Municipality::MUNICIPALITY_TYPE, :to_s, :to_s) %>
+    </div>
+  </div>
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%#= f.label :state %>
       <%= f.collection_select(:state_id, State.all, :id, :state)%>
     </div>
   </div>
@@ -30,6 +36,7 @@
       <%= f.number_field :population, class: "form-control input-lg", placeholder: "Population"  %>
     </div>
   </div>
+
   <div class="actions">
     <%= f.submit "Save Municipality", class: "btn btn-primary"%>
   </div>

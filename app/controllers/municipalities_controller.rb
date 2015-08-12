@@ -37,9 +37,9 @@ class MunicipalitiesController < ApplicationController
   end
 
   def new
-  
+      
       @municipality = Municipality.new
-
+      
 
     
     #@state = Municipality::STATE
@@ -49,7 +49,7 @@ class MunicipalitiesController < ApplicationController
   end
 
   def create
-
+    @municipality_type = Municipality::MUNICIPALITY_TYPE
     @municipality = Municipality.new(municipality_params)
 
     respond_to do |format|
@@ -98,7 +98,7 @@ class MunicipalitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipality_params
-      params.require(:municipality).permit(:name, :state_id, :population)
+      params.require(:municipality).permit(:name, :state_id, :population, :municipality_type)
     end
 
 

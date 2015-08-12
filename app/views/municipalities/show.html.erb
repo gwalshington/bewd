@@ -1,4 +1,7 @@
 <h1><%= @municipality.name %></h1>
+<% if @municipality.municipality_type != nil %>
+	<h4>Type:<%= @municipality.municipality_type %></h4>
+<% end %>
 <h4>State:<%= @municipality.state.state %></h4>
 <h4>Population:<%= @municipality.population %></h4>
 <br>
