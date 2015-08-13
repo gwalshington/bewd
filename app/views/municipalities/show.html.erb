@@ -6,14 +6,21 @@
 <h4>Population:<%= @municipality.population %></h4>
 <br>
 <div>
-	<% @municipality.forms.each do |form| %>
-		<%= link_to form.form_name, form.form_link %><br>
-	<% end %>
+	<table class="table table-striped">
+		<% @municipality.forms.each do |form| %>
+				<tr>
+					<td class:"col-md-3 col-md-offset-3"><%= link_to form.form_name, form.form_link %></td>
+					<td class:"col-md-3 col-md-offset-3"><%= link_to form.department.department, form.department.department %></td>
+				</tr>
+		<% end %>
+	</table>
 </div>
 <br>
 <div class="nav">
-<%= link_to 'Back', municipalities_path, class: "btn btn-default" %> |
+<%= link_to 'Back', municipalities_path, class: "btn btn-default" %><% if user_signed_in? %> |
+
 <%= link_to 'Edit Municipality', edit_municipality_path(@municipality), class: "btn btn-default" %> |
 <%= link_to 'Add a New Form', new_form_path(:municipality_id => @municipality), class: "btn btn-default" %>
+<% end %>
 <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
 </div>
