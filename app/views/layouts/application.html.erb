@@ -17,10 +17,13 @@
 
 <ul class="nav nav-pills">
 	<li role="presentation"><%= link_to 'HOME', root_path %></li>
+	<li role="presentation"><%= link_to 'FORMS', forms_path %></li>
+  	<li role="presentation"><%= link_to 'MUNICIPALITIES', municipalities_path %></li>
+  	<li role="presentation"><%= link_to 'DEPARTMENTS', departments_path %></li>
 <% if user_signed_in? %>
-	<li role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+	<li class="pull-right" role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
 <% else %>
-	<li role="presentation"><%= link_to "SIGN IN", new_user_session_path %></li>
+	<li role="presentation" class="pull-right"><%= link_to "SIGN IN", new_user_session_path %></li>
 <% end %>
 </ul>
 </header>

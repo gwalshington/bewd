@@ -1,9 +1,9 @@
 
 <div class="row">
+  <tr>
+      <%= form_for 'forms_path', method: :get do %>
 
-      <%= form_for 'forms_path', method: :get, :class => "col-lg-6 form-inline" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control col-lg-6" %>
-
+      <%= text_field_tag :query, params[:query], class: "form-control col-lg-4" %>
       <%= submit_tag "Search", :form_name => nil, class: "btn btn-default"%>
       <%= link_to "Reset", forms_path, class: "btn btn-default" %>
 
