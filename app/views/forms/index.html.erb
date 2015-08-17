@@ -30,16 +30,16 @@
     <% @forms.each do |form| %>
       <tr>
         <td><%= link_to form.form_name, form.form_link %></td>
-        <% if form.municipality.name != nil %>
-        <td><%= form.municipality.name %></td>
-        <% else %>
-        <p>Delete</p>
-        <% end %>
-        <% if form.municipality.state.state != nil %>
-        <td><%= form.municipality.state.state %></td>
-        <% else %>
-        <p>Delete</p>
-        <% end %>
+        <%# if form.municipality.name != nil %>
+        <td><%#= form.municipality.name %></td>
+        <%# else %>
+       <!--  <p>Delete</p> -->
+        <%# end %>
+        <%# if form.municipality.state.state != nil %>
+        <td><%#= form.municipality.state.state %></td>
+        <%# else %>
+       <!--  <p>Delete</p> -->
+        <%# end %>
         <td><%= form.department.department %></td>
         <% if user_signed_in? %>
         <td><%#= link_to "upvote", like_form_path(form), method: :put %>
