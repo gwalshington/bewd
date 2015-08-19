@@ -1,11 +1,39 @@
-<h1><%= @municipality.name %></h1>
-<% if @municipality.municipality_type != nil %>
-	<h4>Type:<%= @municipality.municipality_type %></h4>
-<% end %>
-<h4>State:<%= @municipality.state.state %></h4>
-<h4>Population:<%= @municipality.population %></h4>
-<br>
+
+
+<div class="page-header">
+
+  <div class="pull-left">
+  <!-- <div class:"col-md-3 col-md-offset-3"> -->
+    <h1 class="panel-heading"><%= @municipality.name %></h1>
+  </div>
+
+<%# if @municipality.municipality_type != nil %>
+	<!-- <h4>Type:<%#= @municipality.municipality_type %></h4> -->
+<%# end %>
+	<div class="pull-right">
+		<br>
+		<h4>State:<%= @municipality.state.state %></h4>
+		<h4><%= @municipality.population %></h4>
+		<% if @municipality.forms_page != nil %>
+		<h4><%= link_to 'Forms Page', @municipality.forms_page %></h4>
+		<% end %>
+		<br>
+	</div>
+</div>
+<div class="clearfix"></div>
+
+
+    <!-- <div class:"col-md-3 float-left"> -->
+    <!--   <h3 class="text-right">Total Governments: <%= @count %><br>
+        <%# if @present != nil %>
+          Total <%#= @state_name.state %> Municipalities: <%= @count_state %></h3>
+        <%# end %>  
+    </div> -->
+   
+
+
 <div>
+
 	<table class="table table-striped">
 		<% @municipality.forms.each do |form| %>
 				<tr>
