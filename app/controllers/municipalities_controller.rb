@@ -5,40 +5,44 @@ class MunicipalitiesController < ApplicationController
 
   def index
      
+      if params[:state_id] != nil
+          
+      end
+      
+      @dropdown = State.all.map{ |s| [s.state, s.id]}
 
-      @present = params[:state_id]  
-      @dropdown = State.all
 
       @municipality = Municipality.order(:name)
       @count = @municipality.count
-      if params[:state_id].present?
 
+      if params[:state_id].present? && params[:municipality_type].present?
+        @present = params[:state_id] 
+        @municipalities = Municipality.where(municipality_type: params[:municipality_type], state_id: params[:state_id])
+        @forms = Form.where(municipality_id: @municipalities, state_id: @state)
+        
+        @state_name = State.find(@state)
+        @forms = Form.where(municipality_id: @municipalities)
+        @count_state = @municipalities.count
+      elsif params[:state_id].present?
+        @present = params[:state_id] 
        @state = params[:state_id]
        @state_name = State.find(@state)
        @municipalities = Municipality.where(state_id: @state)
        @forms = Form.where(municipality_id: @municipalities)
-       
        @count_state = @municipalities.count
+      elsif params[:municipality_type].present?
+         @municipalities = Municipality.where(municipality_type: "County")
+         @forms = Form.where(municipality_id: @municipalities)
       else
        @forms = nil
        @state = State.all
        @municipalities = Municipality.order(:name)
-
       end
 
-      if params[:municipality_type].present?
-       @state = State.all
-       #@state_name = State.find(@state)
-       @municipalities = Municipality.where(municipality_type: "County")
-       @forms = Form.where(municipality_id: @municipalities)
-       
-       #@count_state = @municipalities.count
-      else
-       @forms = nil
-       @state = State.all
-       @municipalities = Municipality.order(:name)
-
-      end
+      
+      if params[:color].present? && params[:year].present?
+car = Car.where(color: params[:color], year: params[:year])
+end
      
    end
 
