@@ -19,12 +19,26 @@ class MunicipalitiesController < ApplicationController
        @forms = Form.where(municipality_id: @municipalities)
        
        @count_state = @municipalities.count
-     else
+      else
        @forms = nil
        @state = State.all
        @municipalities = Municipality.order(:name)
 
-     end
+      end
+
+      if params[:municipality_type].present?
+       @state = State.all
+       #@state_name = State.find(@state)
+       @municipalities = Municipality.where(municipality_type: "County")
+       @forms = Form.where(municipality_id: @municipalities)
+       
+       #@count_state = @municipalities.count
+      else
+       @forms = nil
+       @state = State.all
+       @municipalities = Municipality.order(:name)
+
+      end
      
    end
 
