@@ -1,13 +1,17 @@
 
 <div class="row">
-  <tr>
+    
       <%= form_for 'forms_path', method: :get do %>
-
-      <td><%= text_field_tag :query, params[:query], class: "form-control col-lg-4" %></td>
-      <td><%= submit_tag "Search", :form_name => nil, class: "btn btn-default"%></td>
+    <div class="form-group">
+      <div class="col-md-4">
+        <%= text_field_tag :query, params[:query], class: "form-control col-md-4 input-group" %>
+      </div>
+    </div>
+      <%= submit_tag "Search", :form_name => nil, class: "btn btn-default" %>
       <%= link_to "Reset", forms_path, class: "btn btn-default" %>
 
       <% end %>
+  
 </div>
 
 
