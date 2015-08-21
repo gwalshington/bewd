@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821011042) do
+ActiveRecord::Schema.define(version: 20150821033609) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "department"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150821011042) do
     t.integer  "state_id"
     t.string   "municipality_type"
     t.string   "forms_page"
+    t.string   "city_county"
   end
 
   add_index "municipalities", ["state_id"], name: "index_municipalities_on_state_id"

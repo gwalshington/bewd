@@ -12,30 +12,47 @@
     </div>
   <% end %>
 
+
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
      <%#= f.label :name %><br>
      <%= f.text_field :name, class: "form-control input-lg", placeholder: "Municipality Name"  %>
+
     </div>
   </div>
+  
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+      <%= f.text_field :city_county, class: "form-control input-lg", placeholder: "If City, input City's County"  %>
+    </div>
+  </div>
+<br>
 
-
-  <div class="form-group input-lg">
+  <div class="form-group input-lg center">
     <div class="controls">
-    <!-- div class="  dropdown  input-lg"> -->
- <!--      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"> -->
-      <%#= f.label :state %>
       <%= f.collection_select(:municipality_type, Municipality::MUNICIPALITY_TYPE, :to_s, :to_s) %>
-   <!--  </ul> -->
-    </div>
-  </div>
-
-  <div class="form-group input-lg">
-    <div class="controls">
-      <%#= f.label :state %>
       <%= f.collection_select(:state_id, State.all, :id, :state)%>
     </div>
+
   </div>
+
+  
+
+ <br>
+
+
+<!-- 
+
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%#= f.label :state %>
+      
+    </div>
+  </div>
+ -->
+  
+
+
   <div class="form-group form-group-lg">
     <div class="col-sm-6">
       <%#= f.label :population %>

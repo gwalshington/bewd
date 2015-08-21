@@ -36,7 +36,7 @@ class MunicipalitiesController < ApplicationController
       else
         @present = nil
         @state = State.all
-        @municipalities = Municipality.order(:name)
+        @municipalities = Municipality.order(:state_id)
       end
    end
 
@@ -110,7 +110,7 @@ class MunicipalitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipality_params
-      params.require(:municipality).permit(:name, :state_id, :population, :municipality_type, :forms_page)
+      params.require(:municipality).permit(:name, :state_id, :population, :municipality_type, :forms_page, :city_county)
     end
 
 
