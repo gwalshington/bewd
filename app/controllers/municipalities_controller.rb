@@ -4,46 +4,38 @@ class MunicipalitiesController < ApplicationController
 
 
   def index
-     
-      if params[:state_id] != nil
-          
-      end
       
-      @dropdown = State.all.map{ |s| [s.state, s.id]}
-
-
+      #@dropdown = 
       @municipality = Municipality.order(:name)
       @count = @municipality.count
 
-      if params[:state_id].present? && params[:municipality_type].present?
-        @present = params[:state_id] 
-        @municipalities = Municipality.where(municipality_type: params[:municipality_type], state_id: params[:state_id])
-        @forms = Form.where(municipality_id: @municipalities, state_id: @state)
-        
+      if params[:state].present? && params[:municipality_type].present?
+        @municipalities = Municipality.where(municipality_type: params[:municipality_type], state_id: params[:state])
+        @present = params[:state]
+        @state_name = State.find(params[:state])
+        @forms = Form.where(municipality_id: @municipalities)
+        #@present = @municipalities.form
+        ##RIGHT PANNEL COUNT
+        @count_state = @municipalities.count
+
+      elsif params[:state].present?
+        @present = params[:state] 
+        @state = params[:state]
         @state_name = State.find(@state)
+        @municipalities = Municipality.where(state_id: @state)
         @forms = Form.where(municipality_id: @municipalities)
         @count_state = @municipalities.count
-      elsif params[:state_id].present?
-        @present = params[:state_id] 
-       @state = params[:state_id]
-       @state_name = State.find(@state)
-       @municipalities = Municipality.where(state_id: @state)
-       @forms = Form.where(municipality_id: @municipalities)
-       @count_state = @municipalities.count
       elsif params[:municipality_type].present?
-         @municipalities = Municipality.where(municipality_type: "County")
-         @forms = Form.where(municipality_id: @municipalities)
+        @present = nil
+        @municipality_type = params[:municipality_type]
+        @state = State.all
+        @municipalities = Municipality.where(municipality_type: @municipality_type)
+        
       else
-       @forms = nil
-       @state = State.all
-       @municipalities = Municipality.order(:name)
+        @present = nil
+        @state = State.all
+        @municipalities = Municipality.order(:name)
       end
-
-      
-      if params[:color].present? && params[:year].present?
-car = Car.where(color: params[:color], year: params[:year])
-end
-     
    end
 
   def show

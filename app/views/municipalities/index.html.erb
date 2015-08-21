@@ -11,7 +11,7 @@
     <!-- <div class:"col-md-3 float-left"> -->
       <h3 class="text-right">Total Governments: <%= @count %><br>
         <% if @present != nil %>
-          Total <%= @state_name.state %> Municipalities: <%= @count_state %></h3>
+          Total <%= @state_name.state %> <% if params[:municipality_type].present? %>Counties<% else%>Municipalities:<% end %> <%= @count_state %></h3>
         <% end %>  
   </div>
     <div class="clearfix"></div>
@@ -19,21 +19,21 @@
 
 
 <div>
-  <div dropdown-toggle>
+  <div class="form-group input-lg">
   <%= form_tag('/municipalities', method: :get) do %>
-    <%= select_tag(:state_id, options_for_select(@dropdown), :prompt => "View by State", class: "btn btn-default btn-lg dropdown-toggle")  %>
-  <%= submit_tag "Search", class: "btn btn-default" %>
-  <%= link_to "Reset", municipalities_path, class: "btn btn-default" %>
-  <%= button_tag 'Counties Only', name: "municipality_type", value: "County", class: "btn btn-default pull-right" %>
 
-  
+    <%= select_tag "state", options_for_select(State.all.map{ |s| [s.state, s.id]}), {:include_blank => true} %>
+   <!--  <%#= select_tag( :municipality options_for_select(@dropdown), , )  %> -->
+    <%= submit_tag "Search", class: "btn btn-default" %>
+    <%= link_to "Reset", municipalities_path, class: "btn btn-default" %>
+    <%= button_tag 'Counties Only', name: "municipality_type", value: "County", class: "btn btn-default pull-right" %>
   <% end %>
   </div>
   <div col-md-3>
 
   </div>
 </div>
-<!-- <div class="panel panel-info"> -->
+<!-- <div class="panel panel-info" > -->
 <div class="pannel">
   <table class="table table-hover">
   
