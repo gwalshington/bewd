@@ -39,6 +39,9 @@
 				<tr>
 					<td class:"col-md-3 col-md-offset-3"><%= link_to form.form_name, form.form_link %></td>
 					<td class:"col-md-3 col-md-offset-3"><%= link_to form.department.department, form.department.department %></td>
+					<% if user_signed_in? %>
+					<td><%= link_to 'Edit', edit_form_path(form) %></td>
+					<% end %>
 				</tr>
 		<% end %>
 	</table>
