@@ -28,7 +28,7 @@ class MunicipalitiesController < ApplicationController
         @forms = Form.where(municipality_id: @municipalities)
         @count_state = @municipalities.count
       elsif params[:municipality_type].present?
-        @present = params[:state]
+        @present = 1
         @municipality_type = params[:municipality_type]
         @state = State.all
         @municipalities = Municipality.where(municipality_type: @municipality_type)
@@ -110,7 +110,7 @@ class MunicipalitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def municipality_params
-      params.require(:municipality).permit(:name, :state_id, :population, :municipality_type, :forms_page, :city_county)
+      params.require(:municipality).permit(:name, :state_id, :population, :municipality_type, :forms_page, :city_county, :referral, :referral_url)
     end
 
 

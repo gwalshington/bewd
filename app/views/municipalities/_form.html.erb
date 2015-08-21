@@ -1,4 +1,4 @@
-<div class="form-horizontal align-left">
+<div class="form form-vertical">
 <%= form_for(@municipality) do |f| %>
   <% if @municipality.errors.any? %>
     <div id="error_explanation">
@@ -12,63 +12,75 @@
     </div>
   <% end %>
 
-
-  <div class="form-group form-group-lg">
-    <div class="col-sm-6">
-     <%#= f.label :name %><br>
-     <%= f.text_field :name, class: "form-control input-lg", placeholder: "Municipality Name"  %>
-
+  <div class="row">
+    <div class="form-group form-group-lg">
+      <div class="col-sm-5">
+       <%#= f.label :name %><br>
+       <%= f.text_field :name, class: "form-control input-lg", placeholder: "Municipality Name"  %>
+      </div>
+    </div>
+    <div>
+       <div class="col-sm-2">
+       </div>
+    </div>
+    <div class="form-group form-group-lg">
+       <div class="col-sm-5">
+        <%= f.text_field :referral, class: "form-control input-lg", placeholder: "Name of Referral"  %>
+       </div>
     </div>
   </div>
-  
-  <div class="form-group form-group-lg">
-    <div class="col-sm-6">
-      <%= f.text_field :city_county, class: "form-control input-lg", placeholder: "If City, input City's County"  %>
-    </div>
-  </div>
+
+
 <br>
 
-  <div class="form-group input-lg center">
-    <div class="controls">
-      <%= f.collection_select(:municipality_type, Municipality::MUNICIPALITY_TYPE, :to_s, :to_s) %>
-      <%= f.collection_select(:state_id, State.all, :id, :state)%>
+  <div class="row">
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+        <%= f.text_field :city_county, class: "form-control input-lg", placeholder: "If City, input City's County"  %>
+      </div>
     </div>
 
-  </div>
+     <div>
+       <div class="col-sm-2">
+       </div>
+    </div>
 
-  
-
- <br>
-
-
-<!-- 
-
-  <div class="form-group input-lg">
-    <div class="controls">
-      <%#= f.label :state %>
-      
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+        <%= f.text_field :referral_url, class: "form-control input-lg", placeholder: "If Referral, URL to Pipedrive"  %>
+      </div>
     </div>
   </div>
- -->
-  
 
 
-  <div class="form-group form-group-lg">
-    <div class="col-sm-6">
-      <%#= f.label :population %>
-      <%= f.number_field :population, class: "form-control input-lg", placeholder: "Population"  %>
+
+  <div class="row">
+    <div class="form-group input-lg col-sm-5">
+      <div class="controls">
+        <%= f.collection_select(:municipality_type, Municipality::MUNICIPALITY_TYPE, :to_s, :to_s) %>
+        <%= f.collection_select(:state_id, State.all, :id, :state)%>
+      </div>
     </div>
   </div>
-  <!-- <br><br>
-  <div>
-    <h4>Optional:</h4>
-  </div> -->
-  <div class="form-group form-group-lg">
-    <div class="col-sm-6">
-     <%#= f.label :name %><br>
-     <%= f.text_field :forms_page, class: "form-control input-lg", placeholder: "City Form Page: http://website.com"  %>
+
+  <br>
+  <div class="row">
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+        <%= f.number_field :population, class: "form-control input-lg", placeholder: "Population"  %>
+      </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+
+       <%= f.text_field :forms_page, class: "form-control input-lg", placeholder: "City Form Page: http://website.com"  %>
+      </div>
+    </div>
+  </div>
+
   <br>
   <div class="actions">
     <%= f.submit "Save Municipality", class: "btn btn-primary"%>

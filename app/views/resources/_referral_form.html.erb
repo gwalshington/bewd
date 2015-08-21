@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :genre %><br>
-    <%#= select_tag "genre", options_for_select(["Referrals"], ["Payment Integrations"], ["Product"], ["Case Studies"], ["Admin"], ["Training"]]) %>
+    <%= select_tag "genre", options_for_select(["Referrals"], ["Payment Integrations"], ["Product"], ["Case Studies"], ["Admin"], ["Training"]]) %>
     <%#= f.text_field :genre %>
   </div>
   <div class="field">
-    <%= f.label :url %><br>
+    <%= f.label "Link  to Pipedrive" %><br>
     <%= f.text_field :url %>
   </div>
   <div class="field">
@@ -36,6 +36,7 @@
     <%= f.label :department_id %><br>
     <%= f.text_field :department_id %>
   </div>
+  <%= hidden_field_tag 'genre', "Referral" %>
   <div class="actions">
     <%= f.submit %>
   </div>

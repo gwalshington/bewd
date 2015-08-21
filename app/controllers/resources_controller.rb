@@ -4,8 +4,19 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
-    @procurement_resources = Resource.where(genre: 'Procurement')
+    @municipality = Municipality.all
+
+    # if @municipality.referral != nil
+    #   @referral_present = true
+    # else
+    #   @referral_present = nil
+    # end
+
+
+
+
+    # @resources = Resource.all
+    # @procurement_resources = Resource.where(genre: 'Procurement')
   end
 
   # GET /resources/1
