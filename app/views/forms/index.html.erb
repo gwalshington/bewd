@@ -25,14 +25,15 @@
       <th>Municipality</th>
       <th>State</th>
       <th>Department</th>
-      <th colspan="3"></th>
+      <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
   </div>
  
   <tbody>
     <% @forms.each do |form| %>
-      <tr>
+      
+      <tr <% if form.has_payment == true %>class="success">
         <td><%= link_to form.form_name, form.form_link %></td>
         <td><%= form.municipality.name %></td>
         <td><%= form.municipality.state.state %></td>
@@ -43,7 +44,9 @@
         <td><%= link_to 'Edit', edit_form_path(form) %></td>
         <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-      </tr>
+
+      </tr> 
+      <% end %>
     <% end %>
   </tbody>
 </table>

@@ -37,11 +37,20 @@
 params[:municipality_id]}) %>
     </div>
   </div>
+
     <div class="form-group input-lg">
       <div class="controls">
         <%= f.collection_select :department_id, Department.order(:department), :id, :department %>
       </div>
     </div>
+
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%= f.check_box :has_payment, :style => "width: 25px; height: 25px;" %>
+      <%= f.label "Form has payment" %>
+    </div>
+  </div>
+  <br>
 
   <div class="actions">
     <%= f.submit "Save Form", class: "btn btn-primary"%>
