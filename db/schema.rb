@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821222256) do
+ActiveRecord::Schema.define(version: 20150822012956) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "department"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150821222256) do
     t.string   "city_county"
     t.string   "referral"
     t.string   "referral_url"
+    t.string   "payment_provider"
+    t.string   "website_provider"
   end
 
   add_index "municipalities", ["state_id"], name: "index_municipalities_on_state_id"

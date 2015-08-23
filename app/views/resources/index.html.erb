@@ -1,12 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 
+<div class="panel-heading pull-left col-sm-6">
+<h1 class="align-left">Payment Providers</h1>
+<table class="table table-hover">
 
-<div class="pull-left col-sm-6">
-  <h1 class="pull-left">Payment Providers</h1>
+
+    <tbody>
+       <%# if @municipality.payment_provider != nil %>
+        <% @payment_provider.each do |payment_provider| %>
+            <div style="border: 1px #ccc solid;
+            padding-bottom: 50px;
+            padding-left: 50px;
+            border-radius: 4px;
+            
+            background-color: #fff;">
+            
+            <h3 class="text-center" style="align-content: flex-start" ><%= payment_provider %></h3>
+            <br>
+            <% @municipality.each do |municipality| %>
+              <% if municipality.payment_provider == payment_provider %>
+                <h5 style="padding-left: 50px;"><%= municipality.name %> | <%= municipality.state.state %></h5>
+              <% end %>
+
+            <% end %>
+           
+          </div>
+          <br>
+        <% end %>
+          <%# if municipality.payment_provider == payment_provider %>
+            <%#= link_to(municipality.referral_url, class: "btn btn-default btn-block") do %>
+            
+          <%# end %>
+        
+      <%# end %>
+    </tbody>
+  </table>
 </div>
-
-
 
 
 

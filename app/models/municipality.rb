@@ -13,6 +13,23 @@ class Municipality < ActiveRecord::Base
 	]
 
 
+	WEBSITE_PROVIDER = [
+		"Civic Plus",
+		"Vision Internet",
+		"Revise",
+		"Virtual Towns and Schools",
+		"American Eagle",
+		"eGov Strategies"
+	]
+
+	PAYMENT_PROVIDER = [
+		"Authorize.Net",
+		"XpressBillPay",
+		"ePay2Gov",
+		"TrafficPayments.com",
+		"BlueFin"
+	]
+
 	validates :municipality_type, :inclusion => MUNICIPALITY_TYPE
 
 

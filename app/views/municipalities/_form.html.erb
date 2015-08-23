@@ -70,6 +70,18 @@
         <%= f.number_field :population, class: "form-control input-lg", placeholder: "Population"  %>
       </div>
     </div>
+
+    <div>
+       <div class="col-sm-2">
+       </div>
+    </div>
+
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+        <%= f.collection_select(:website_provider, Municipality::WEBSITE_PROVIDER, :to_s, :to_s, :include_blank => "Website Provider" ) %>
+      </div>
+    </div>
+
   </div>
 
   <div class="row">
@@ -77,6 +89,18 @@
       <div class="controls">
 
        <%= f.text_field :forms_page, class: "form-control input-lg", placeholder: "City Form Page: http://website.com"  %>
+      </div>
+    </div>
+
+
+    <div>
+       <div class="col-sm-2">
+       </div>
+    </div>
+  
+    <div class="form-group form-group-lg col-sm-5">
+      <div class="controls">
+        <%= f.collection_select(:payment_provider, Municipality::PAYMENT_PROVIDER, :to_s, :to_s, :include_blank => "Payment Integration", class: "form-group input-lg col-sm-5") %>
       </div>
     </div>
   </div>

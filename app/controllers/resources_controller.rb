@@ -5,7 +5,7 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @municipality = Municipality.all
-
+    @payment_provider = Municipality::PAYMENT_PROVIDER
     # if @municipality.referral != nil
     #   @referral_present = true
     # else
