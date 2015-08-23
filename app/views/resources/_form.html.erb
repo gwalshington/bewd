@@ -1,3 +1,5 @@
+<div class="form-horizontal align-left">
+
 <%= form_for(@resource) do |f| %>
   <% if @resource.errors.any? %>
     <div id="error_explanation">
@@ -11,31 +13,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :resource %><br>
-    <%= f.text_field :resource %>
-  </div>
-  <div class="field">
-    <%= f.label "Type of Resource" %><br>
-    <%= f.collection_select(:genre, Resource::GENRE, :to_s, :to_s) %>
 
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+    <%= f.text_field :resource, class: "form-control input-lg", placeholder: "Name of Resource"  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+
+
+  <div class="form-group form-group-lg">
+    <div class="col-sm-6">
+    <%= f.text_field :url, class: "form-control input-lg", placeholder: "Resource URL"  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.collection_select(:state_id, State.all, :id, :state)%>
+
+  <div class="form-group input-lg">
+      <div class="controls">
+
+    <%= f.collection_select(:genre, Resource::GENRE, :to_s, :to_s, :include_blank => "Type of Resource") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :municipality_id %><br>
-    <%= f.text_field :municipality_id %>
+
+  <div class="form-group input-lg">
+      <div class="controls">
+    <%= f.collection_select(:state_id, State.all, :id, :state,  :include_blank => "State")%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :department_id %><br>
-    <%= f.text_field :department_id %>
+
+
+  <div class="form-group input-lg">
+      <div class="controls">
+    <%= f.collection_select(:municipality_id, Municipality.all, :id, :name,  :include_blank => "Municipality")%>
+    </div>
   </div>
+  
+
+  <div class="form-group input-lg">
+      <div class="controls">
+    <%= f.collection_select :department_id, Department.order(:department), :id, :department, :include_blank => "Department" %>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Resource", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
