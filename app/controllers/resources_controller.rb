@@ -4,8 +4,11 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
+    @resource = Resource.all
     @municipality = Municipality.all
     @payment_provider = Municipality::PAYMENT_PROVIDER
+    @genre = Resource::GENRE
+
     # if @municipality.referral != nil
     #   @referral_present = true
     # else

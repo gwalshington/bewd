@@ -3,5 +3,5 @@ class Resource < ActiveRecord::Base
   belongs_to :municipality
   belongs_to :department
 
-  GENRE = ["Referrals", "Integrations"]
+  GENRE = ["Form Examples", "Marketing", "Case Studies"]
 end

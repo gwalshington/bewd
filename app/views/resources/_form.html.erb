@@ -16,17 +16,16 @@
     <%= f.text_field :resource %>
   </div>
   <div class="field">
-    <%= f.label :genre %><br>
-    <%#= select_tag "genre", options_for_select(["Referrals"], ["Payment Integrations"], ["Product"], ["Case Studies"], ["Admin"], ["Training"]]) %>
-    <%#= f.text_field :genre %>
+    <%= f.label "Type of Resource" %><br>
+    <%= f.collection_select(:genre, Resource::GENRE, :to_s, :to_s) %>
+
   </div>
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :state_id %><br>
-    <%= f.text_field :state_id %>
+    <%= f.collection_select(:state_id, State.all, :id, :state)%>
   </div>
   <div class="field">
     <%= f.label :municipality_id %><br>

@@ -1,3 +1,5 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 
@@ -39,6 +41,24 @@
 </div>
 
 
+<div class="panel-heading col-sm-6 pull right">
+<h1 class="align-right">Form Examples</h1>
+<table class="table table-hover">
+
+  <tbody>
+     <%# if @referral_present != nil %>
+      <% @resource.each do |resource| %>
+
+        <% if resource.genre == "Form Examples" %>
+          <%= link_to(resource.url, class: "btn btn-default btn-block") do %>
+              <h3><%= resource.resource %> </h3>
+          <% end %>
+        <% end %>
+          
+      <% end %>
+  </tbody>
+</table>
+</div>
 
 <div class="panel-heading col-sm-6 pull right">
 <h1 class="align-right">Referrals</h1>
@@ -68,6 +88,8 @@
   </tbody>
 </table>
 </div>
+
+
 
 
 
@@ -103,5 +125,10 @@
 </table>
 <div>
 <br> -->
+</div>
+<% if user_signed_in? %>
+<%= link_to 'New Resource', new_resource_path, class: "btn btn-default" %>
+<% end %>
+<br>
+<br>
 
-<%#= link_to 'New Resource', new_resource_path %>
