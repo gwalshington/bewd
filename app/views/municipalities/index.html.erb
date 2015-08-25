@@ -71,14 +71,14 @@
               <td><%= link_to municipality.name, municipality_path(municipality) %></td>
               <% if params[:state] == nil %>
                 <td><%= municipality.state.state %></td>  
-                <% if municipality.city_county != nil %>
-                <td><%= municipality.city_county %></td>
+                <% if municipality.city_county.blank? != true %>
+                  <td><%= municipality.city_county %></td>
+                <% else %>
+                  <td></td>
                 <% end %>
-              <% else %>      
-                <td></td>
               <% end %>
              
-                <td></td>
+               
               <td><%= municipality.population %></td>
               <% if user_signed_in? %>
                 <!-- <td><%#= link_to 'Show', municipality %></td> -->
