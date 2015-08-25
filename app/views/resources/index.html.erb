@@ -58,7 +58,7 @@
      <%# if @referral_present != nil %>
       <% @municipality.each do |municipality| %>
 
-        <% if municipality.referral != nil %>
+        <% if municipality.referral != nil && municipality.referral.blank? != true %>
           <%= link_to(municipality.referral_url, class: "btn btn-default btn-block") do %>
               <h3><%= municipality.name %> | <%= municipality.state.state %></h3>
               <h5><%= municipality.referral %></h5>
