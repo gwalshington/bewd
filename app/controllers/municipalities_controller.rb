@@ -9,12 +9,15 @@ class MunicipalitiesController < ApplicationController
       @municipality = Municipality.order(:name)
       @count = @municipality.count
 
+      @active_count = Form.distinct.count('municipality_id')
+
       if params[:state].present? && params[:municipality_type].present?
         @municipalities = Municipality.where(municipality_type: params[:municipality_type], state_id: params[:state])
         @state_present = params[:state]
         @present = params[:state]
         @state_name = State.find(params[:state])
         @forms = Form.where(municipality_id: @municipalities)
+
         #@present = @municipalities.form
         ##RIGHT PANNEL COUNT
         @count_state = @municipalities.count

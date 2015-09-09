@@ -10,6 +10,7 @@
   <div class="pull-right">
     <!-- <div class:"col-md-3 float-left"> -->
       <h3 class="text-right">Total Governments: <%= @count %><br>
+      <h3 class="text-right">Total Active Governments: <%= @active_count %><br>
         <% if @state_present != nil %>
           Total <%= @state_name.state %> <% if params[:municipality_type].present? %>Counties<% else%>Municipalities:<% end %> <%= @count_state %></h3>
         <% end %>  
