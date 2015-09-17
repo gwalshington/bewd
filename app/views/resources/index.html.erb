@@ -39,7 +39,7 @@
       <% @resource.each do |resource| %>
 
         <% if resource.genre == "Form Examples" %>
-          <%= link_to(resource.url, class: "btn btn-default btn-block") do %>
+          <%= link_to(resource.url, class: "btn btn-default btn-block", :target => '_blank') do %>
               <h3><%= resource.resource %> </h3>
           <% end %>
         <% end %>
@@ -59,7 +59,7 @@
       <% @municipality.each do |municipality| %>
 
         <% if municipality.referral != nil && municipality.referral.blank? != true %>
-          <%= link_to(municipality.referral_url, class: "btn btn-default btn-block") do %>
+          <%= link_to(municipality.referral_url, class: "btn btn-default btn-block", :target => '_blank') do %>
               <h3><%= municipality.name %> | <%= municipality.state.state %></h3>
               <h5><%= municipality.referral %></h5>
           <% end %>

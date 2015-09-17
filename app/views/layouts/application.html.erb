@@ -21,6 +21,7 @@
   	<li role="presentation"><%= link_to 'MUNICIPALITIES', municipalities_path %></li>
   	<li role="presentation"><%= link_to 'DEPARTMENTS', departments_path %></li>
   	<li role="presentation"><%= link_to 'RESOURCES', resources_path %></li>
+  	<li role="presentation"><%= link_to 'MAP', 'http://maps.seamlesssell.com/maps/active/', :target => '_blank' %></li>
 <% if user_signed_in? %>
 	<li class="pull-right" role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
 <% else %>
