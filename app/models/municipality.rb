@@ -23,6 +23,7 @@ class Municipality < ActiveRecord::Base
 	]
 
 	PAYMENT_PROVIDER = [
+		"SeamlessPay",
 		"Authorize.Net",
 		"XpressBillPay",
 		"ePay2Gov",
