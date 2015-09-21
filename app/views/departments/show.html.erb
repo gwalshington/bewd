@@ -15,7 +15,11 @@
  
   <tbody>
     <% @department.forms.each do |form| %>
-      <tr>
+      
+      <% if form.has_payment == true %>
+      <tr class="success">
+      <% else %>
+      <tr><% end %>
         <td><%= link_to form.form_name, form.form_link, :target => '_blank' %></td>
         <td><%= form.municipality.name %></td>
         <td><%= form.municipality.state.state %></td>
