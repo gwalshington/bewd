@@ -11,9 +11,13 @@ class FormsController < ApplicationController
 
 
     if params[:query].present?
-
       query = params[:query]
       @forms = Form.where("lower(form_name) LIKE ?", "%#{query.downcase}%")
+    elsif params[:has_payment].present?
+      #@has_payment = @company.projects.where(:has_payment =>  true)
+
+      #@has_payment = params[:has_payment]
+      @forms = Form.where(:has_payment => true)
     else
       @forms = Form.all
     end
