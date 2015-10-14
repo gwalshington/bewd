@@ -40,3 +40,35 @@
 </table>
 
 <br>
+
+<h2 class="panel-heading">Recently added governments:</h2>
+
+<table class="table table-hover">
+ 
+  <thead>
+    <tr>
+      <th>Municipality</th>
+      <th>State</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+  </div>
+ 
+  <tbody>
+    <% @munis.each do |municipality| %>
+        <td><%= link_to municipality.name, municipality, :target => "_blank" %></td>
+        <td><%= municipality.state.state %></td>
+        <% if user_signed_in? %>
+        <td><%#= link_to "upvote", like_form_path(form), method: :put %>
+        <td><%= link_to 'Show', form %></td>
+        <td><%= link_to 'Edit', edit_form_path(form) %></td>
+        <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -32,10 +32,12 @@ class FormsController < ApplicationController
 
   def welcome
     @forms = Form.last(10)
+    @munis = Municipality.last(10)
   end
 
   def recent
     @forms = Form.last(10)
+    @munis = Municipality.last(10)
   end
 
   
