@@ -52,6 +52,22 @@ params[:municipality_id]}) %>
   </div>
   <br>
 
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%= f.check_box :is_state, :style => "width: 25px; height: 25px;" %>
+      <%= f.label "Form is a state mandated or state issued form" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group input-lg">
+    <div class="controls">
+      <%= f.check_box :is_federal, :style => "width: 25px; height: 25px;" %>
+      <%= f.label "Form is a federally mandated or issued form" %>
+    </div>
+  </div>
+  <br>
+
   <div class="actions">
     <%= f.submit "Save Form", class: "btn btn-primary"%>
   </div>

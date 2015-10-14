@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822012956) do
+ActiveRecord::Schema.define(version: 20151014225311) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "department"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150822012956) do
     t.integer  "municipality_id"
     t.integer  "department_id"
     t.boolean  "has_payment"
+    t.boolean  "is_state"
+    t.boolean  "is_federal"
   end
 
   add_index "forms", ["department_id"], name: "index_forms_on_department_id"

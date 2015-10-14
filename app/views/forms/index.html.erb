@@ -9,6 +9,11 @@
     </div>
       <%= submit_tag "Search", :form_name => nil, class: "btn btn-default" %>
       <%= link_to "Reset", forms_path, class: "btn btn-default" %>
+
+      
+
+      <%= button_tag 'State Forms', name: "is_state", value: "true", class: "btn btn-default pull-right", style: "margin-left:5px;" %>
+      <%= button_tag 'Federal Forms', name: "is_federal", value: "true", class: "btn btn-default pull-right", style: "margin-left:5px;" %>
       <%= button_tag 'Forms with Payment', name: "has_payment", value: "true", class: "btn btn-default pull-right" %>
       <% end %>
 
