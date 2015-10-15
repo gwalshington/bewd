@@ -43,7 +43,13 @@
       <tr class="success">
       <% else %>
       <tr><% end %>
-        <td><%= link_to form.form_name, form.form_link, :target => "_blank" %></td>
+        <td><%= link_to form.form_name, form.form_link, :target => "_blank" %>
+          <% if form.is_state == true %>
+            <span class="badge">S</span>
+          <% elsif form.is_federal == true %>
+            <span class="badge">F</span>
+          <% end %>
+        </td>
         <td><%= form.municipality.name %></td>
         <td><%= form.municipality.state.state %></td>
         <td><%= form.department.department %></td>

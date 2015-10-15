@@ -95,7 +95,13 @@
                   <tr>
                   <% end %>
                   <td class:"col-md-2 col-md-offset-3"></td>
-                  <td class:"col-md-2 col-md-offset-3"><%= link_to form.form_name, form.form_link, :target => '_blank' %></td>
+                  <td class:"col-md-2 col-md-offset-3"><%= link_to form.form_name, form.form_link, :target => '_blank' %>
+                    <% if form.is_state == true %>
+                      <span class="badge">S</span>
+                    <% elsif form.is_federal == true %>
+                      <span class="badge">F</span>
+                    <% end %>
+                  </td>
                   <td class:"col-md-2 col-md-offset-3"><%= form.department.department %></td>
                    <td class:"col-md-2 col-md-offset-3"></td>
                   <% if user_signed_in? %>
