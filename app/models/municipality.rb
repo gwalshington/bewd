@@ -9,6 +9,7 @@ class Municipality < ActiveRecord::Base
 	MUNICIPALITY_TYPE = [
 		"City", 
 		"County", 
+		"Local Agency",
 		"State Agency"
 	]
 
