@@ -22,6 +22,11 @@ class FormsController < ApplicationController
       @forms = Form.where(:is_state => true)
     elsif params[:is_federal].present?
       @forms = Form.where(:is_federal => true)
+    elsif params[:form_type].present?
+      @form_type = params[:form_type]
+      @forms = Form.where(form_type: @form_type)
+
+
     else
       @forms = Form.all
     end
@@ -140,6 +145,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:form_name, :form_link, :department_id, :municipality_id, :has_payment, :is_state, :is_federal)
+      params.require(:form).permit(:form_name, :form_link, :department_id, :municipality_id, :has_payment, :is_state, :is_federal, :form_type)
     end
 end

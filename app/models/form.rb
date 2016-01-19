@@ -11,6 +11,12 @@ class Form < ActiveRecord::Base
 		where(:all, :conditions => ['UPPER(form_name) LIKE ?', "%#{query.upcase}%"])
 		#where('form_name LIKE :query', query: "%#{query}")
 	end
+
+	FORM_TYPE = [
+		"SeamlessDoc", 
+		"Web Form", 
+		"Wizard"
+	]
 	
 end
 

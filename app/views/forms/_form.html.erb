@@ -44,6 +44,15 @@
       </div>
     </div>
 
+    <div class="form-group input-lg">
+      <div class="controls">
+        <%#= f.text_field :form_type %>
+        <%= f.collection_select(:form_type, Form::FORM_TYPE, :to_s, :to_s)  %>
+                <%#= f.collection_select(:municipality_type, Municipality::MUNICIPALITY_TYPE, :to_s, :to_s) %>
+
+      </div>
+    </div>
+
   <div class="form-group input-lg">
     <div class="controls">
       <%= f.check_box :has_payment, :style => "width: 25px; height: 25px;" %>

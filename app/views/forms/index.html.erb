@@ -7,14 +7,17 @@
         <%= text_field_tag :query, params[:query], class: "form-control col-md-4 input-group" %>
       </div>
     </div>
-      <%= submit_tag "Search", :form_name => nil, class: "btn btn-default" %>
+      <%= submit_tag "Search", :form_name => nil, class: "btn btn-default", background_color: "#d0d8e1" %>
       <%= link_to "Reset", forms_path, class: "btn btn-default" %>
 
       
 
       <%= button_tag 'State Forms', name: "is_state", value: "true", class: "btn btn-default pull-right", style: "margin-left:5px;" %>
       <%= button_tag 'Federal Forms', name: "is_federal", value: "true", class: "btn btn-default pull-right", style: "margin-left:5px;" %>
-      <%= button_tag 'Forms with Payment', name: "has_payment", value: "true", class: "btn btn-default pull-right" %>
+      <%= button_tag 'Has Payment', name: "has_payment", value: "true", class: "btn btn-default pull-right" %>
+      <%= button_tag 'Web Form', name: "form_type", value: "Web Form", class: "btn btn-default pull-right", style: "margin-right:5px;" %>
+      <%= button_tag 'Wizard', name: "form_type", value: "Wizard", class: "btn btn-default pull-right", style: "margin-right:5px;" %>
+
       <% end %>
 
   
