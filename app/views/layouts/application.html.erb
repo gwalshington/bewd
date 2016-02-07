@@ -23,8 +23,8 @@
 	</head>
 <% if user_signed_in? != true %>
 	<h1 id="centered">Please <%= link_to "sign in", new_user_session_path %> to access SeamlessSell</h1>
-	<%= render 'layouts/messages' %>
-	<%= yield %>
+	<%#= render 'layouts/messages' %>
+	<div id="centered"><%= yield %></div>
 <% else %>
 	<ul class="nav nav-pills">
 		<li role="presentation"><%= link_to 'HOME', root_path %></li>
