@@ -21,6 +21,11 @@ Rails.application.routes.draw do
     end
   end
 
+# devise_scope :user do
+#   match '/sign-in' => "devise/sessions#new", :as => :login
+# end
+  
+
 
 
   # get '/list' as: 'forms#list'

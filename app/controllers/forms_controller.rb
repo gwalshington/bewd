@@ -1,4 +1,6 @@
 class FormsController < ApplicationController
+  before_filter :authenticate_user!
+
   before_action :set_form, only: [:show, :edit, :update, :destroy]
   
 

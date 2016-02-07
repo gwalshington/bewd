@@ -1,4 +1,6 @@
 class MunicipalitiesController < ApplicationController
+    before_filter :authenticate_user!
+
   before_action :set_municipality, only: [:show, :edit, :update, :destroy]
 
 

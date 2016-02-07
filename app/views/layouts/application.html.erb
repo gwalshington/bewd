@@ -2,6 +2,7 @@
 
 
 <html lang="en">
+
 <div class="container">
 <head>
 	<meta charset="utf-8">
@@ -14,25 +15,30 @@
    <!--  <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <header>
-
-<ul class="nav nav-pills">
-	<li role="presentation"><%= link_to 'HOME', root_path %></li>
-	<li role="presentation"><%= link_to 'FORMS', forms_path %></li>
-  	<li role="presentation"><%= link_to 'MUNICIPALITIES', municipalities_path %></li>
-  	<li role="presentation"><%= link_to 'DEPARTMENTS', departments_path %></li>
-  	<!-- <li role="presentation"><%= link_to 'RESOURCES', resources_path %></li> -->
-  	<li role="presentation"><%= link_to 'MAP', 'http://maps.seamlesssell.com/maps/active/', :target => '_blank' %></li>
-  	<li role="presentation"><%= link_to 'PARALLEL UNIVERSE', 'http://cat.www2.seamlessdocs.com.meowbify.com/', :target => '_blank' %></li>
-<% if user_signed_in? %>
-	<li class="pull-right" role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+<% if user_signed_in? != true %>
+	<h1 id="centered">Please <%= link_to "sign in", new_user_session_path %> to access SeamlessSell</h1>
+	<%= render 'layouts/messages' %>
+	<%= yield %>
 <% else %>
-	<li role="presentation" class="pull-right"><%= link_to "SIGN IN", new_user_session_path %></li>
+	<ul class="nav nav-pills">
+		<li role="presentation"><%= link_to 'HOME', root_path %></li>
+		<li role="presentation"><%= link_to 'FORMS', forms_path %></li>
+	  	<li role="presentation"><%= link_to 'MUNICIPALITIES', municipalities_path %></li>
+	  	<li role="presentation"><%= link_to 'DEPARTMENTS', departments_path %></li>
+	  	<!-- <li role="presentation"><%= link_to 'RESOURCES', resources_path %></li> -->
+	  	<li role="presentation"><%= link_to 'MAP', 'http://maps.seamlesssell.com/maps/active/', :target => '_blank' %></li>
+	  	<li role="presentation"><%= link_to 'PARALLEL UNIVERSE', 'http://cat.www2.seamlessdocs.com.meowbify.com/', :target => '_blank' %></li>
+	<% if user_signed_in? %>
+		<li class="pull-right" role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+	<% else %>
+		<li role="presentation" class="pull-right"><%= link_to "SIGN IN", new_user_session_path %></li>
+	</ul>
 <% end %>
-</ul>
+
 </header>
 
 <head>
-  <title>FormSearch</title>
+  <title>SeamlessSell</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -48,6 +54,9 @@
 	<%= yield %>
 
 </body>
+
+<% end %>
+
 <footer>
 	<br>
 	<br>
