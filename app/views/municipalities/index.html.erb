@@ -84,7 +84,7 @@
               <% if user_signed_in? %>
                 <!-- <td><%#= link_to 'Show', municipality %></td> -->
                 <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
-                <td><%= link_to 'Destroy', municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Delete', municipality, method: :delete, data: { confirm: 'Are you sure delete this municipality forever?' } %></td>
               <% end %>
               <tr>
               <% if @present != nil %>
