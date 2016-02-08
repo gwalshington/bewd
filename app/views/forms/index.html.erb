@@ -53,7 +53,7 @@
             <span class="badge">F</span>
           <% end %>
         </td>
-        <td><%= form.municipality.name %></td>
+        <td><%= form.municipality.name rescue nil %></td>
         <td><%= form.municipality.state.state %></td>
         <td><%= form.department.department %></td>
         <% if user_signed_in? %>

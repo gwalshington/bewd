@@ -29,8 +29,8 @@
             <span class="badge">F</span>
           <% end %>
         </td>
-        <td><%= form.municipality.name %></td>
-        <td><%= form.municipality.state.state %></td>
+        <td><%= form.municipality.name rescue nil %></td>
+        <td><%= form.municipality.state.state rescue nil %></td>
 
         <td><%= form.department.department %></td>
         <% if user_signed_in? %>
@@ -63,7 +63,7 @@
   <tbody>
     <% @munis.each do |municipality| %>
         <td><%= link_to municipality.name, municipality, :target => "_blank" %></td>
-        <td><%= municipality.state.state %></td>
+        <td><%= municipality.state.state%></td>
         <% if user_signed_in? %>
         <td><%#= link_to "upvote", like_form_path(form), method: :put %>
         <td><%#= link_to 'Show', form %></td>
