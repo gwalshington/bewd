@@ -63,6 +63,9 @@ class FormsController < ApplicationController
 
   def new
 
+    if params[:municipality_id].present?
+      @muni_id = params[:municipality_id]
+    end
 
     @form = Form.new
     
@@ -70,11 +73,14 @@ class FormsController < ApplicationController
   end
 
   def edit
-    # if @form.municipality_id.present?
-    #   @muni_id = Municipality.find(params[:municipality_id])
-    # else
-    #   @muni_id = 1
-    # end
+    if @form.municipality_id.present?
+      @muni_id = @form.municipality_id
+       #@muni_id = Municipality.find(params[:municipality_id])
+    else
+       @muni_id = 1
+    end
+
+
   end
 
 
