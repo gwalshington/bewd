@@ -83,8 +83,8 @@
               <td><%= municipality.population %></td>
               <% if user_signed_in? %>
                 <!-- <td><%#= link_to 'Show', municipality %></td> -->
-                <td><%= link_to 'Edit', edit_municipality_path(municipality) %></td>
-                <td><%= link_to 'Delete', municipality, method: :delete, data: { confirm: 'Are you sure delete this municipality forever?' } %></td>
+                <td><%#= link_to 'Edit', edit_municipality_path(municipality) %></td>
+                <td><%#= link_to 'Delete', municipality, method: :delete, data: { confirm: 'Are you sure delete this municipality forever?' } %></td>
               <% end %>
               <tr>
               <% if @present != nil %>
@@ -104,13 +104,13 @@
                   </td>
                   <td class:"col-md-2 col-md-offset-3"><%= form.department.department %></td>
                    <td class:"col-md-2 col-md-offset-3"></td>
-                  <% if user_signed_in? %>
-                    <td class:"col-md-2 col-md-offset-3"><%= link_to 'Edit', edit_form_path(form) %></td>
-                    <% else %>
-                    <td class:"col-md-2 col-md-offset-3"></td>
-                  <% end %>
-                  <td class:"col-md-2 col-md-offset-3"></td>
-                  <!-- <td class:"col-md-3 col-md-offset-3"></td> -->
+                  <%# if user_signed_in? %>
+<!--                     <td class:"col-md-2 col-md-offset-3"><%#= link_to 'Edit', edit_form_path(form) %></td>
+ -->                    <%# else %>
+<!--                     <td class:"col-md-2 col-md-offset-3"></td>
+ -->                  <%# end %>
+<!--                   <td class:"col-md-2 col-md-offset-3"></td>
+ -->                  <!-- <td class:"col-md-3 col-md-offset-3"></td> -->
                 <% end %>  
               <% end %>  
                 <tr>

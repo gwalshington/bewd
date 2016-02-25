@@ -44,6 +44,9 @@ class FormsController < ApplicationController
   def welcome
     @forms = Form.last(10)
     @munis = Municipality.last(10)
+    @gov_count = Municipality.count
+    @form_count = Form.count
+
   end
 
   def recent
