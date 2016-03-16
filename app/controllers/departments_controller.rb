@@ -7,6 +7,7 @@ class DepartmentsController < ApplicationController
   # GET /departments.json
   def index
     @departments = Department.order(:department)
+    @count = @departments.count
 
   end
 
