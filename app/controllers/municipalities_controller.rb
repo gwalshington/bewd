@@ -7,7 +7,6 @@ class MunicipalitiesController < ApplicationController
 
   def index
       
-      #@dropdown = 
       @municipality = Municipality.order(:name)
       @count = @municipality.count
       

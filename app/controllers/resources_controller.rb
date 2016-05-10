@@ -11,6 +11,7 @@ class ResourcesController < ApplicationController
     @municipality = Municipality.all
     @payment_provider = Municipality::PAYMENT_PROVIDER
     @genre = Resource::GENRE
+    @website_provider = Municipality::WEBSITE_PROVIDER
 
     # if @municipality.referral != nil
     #   @referral_present = true
