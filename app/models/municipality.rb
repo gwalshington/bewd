@@ -1,7 +1,7 @@
 class Municipality < ActiveRecord::Base
-	has_many :forms
+	has_many :forms, dependent: :destroy
 	belongs_to :state
-	has_many :resources
+	has_many :resources, dependent: :destroy
 
 	accepts_nested_attributes_for :state
 

@@ -52,6 +52,7 @@
 					<td class:"col-md-3 col-md-offset-3"><%= link_to form.department.department, form.department.department %></td>
 					<% if user_signed_in? %>
 					<td><%= link_to 'Edit', edit_form_path(form) %></td>
+					<td><%= link_to 'Destroy Forever', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 					<% end %>
 				</tr>
 		<% end %>
@@ -63,6 +64,7 @@
 
 <%= link_to 'Edit Municipality', edit_municipality_path(@municipality), class: "btn btn-default" %> |
 <%= link_to 'Add a New Form', new_form_path(:municipality_id => @municipality), class: "btn btn-default" %>
+<td><%= link_to 'Destroy Forever', @municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
 </div>
