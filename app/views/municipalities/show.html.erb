@@ -63,8 +63,8 @@
 <%= link_to 'Back', municipalities_path, class: "btn btn-default" %><% if user_signed_in? %> |
 
 <%= link_to 'Edit Municipality', edit_municipality_path(@municipality), class: "btn btn-default" %> |
-<%= link_to 'Add a New Form', new_form_path(:municipality_id => @municipality), class: "btn btn-default" %>
-<td><%= link_to 'Destroy Forever', @municipality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Add a New Form', new_form_path(:municipality_id => @municipality), class: "btn btn-default" %> | 
+<td><%= link_to 'Destroy Forever', @municipality, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
 <% end %>
 <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
 </div>
