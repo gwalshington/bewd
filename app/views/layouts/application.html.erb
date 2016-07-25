@@ -32,8 +32,10 @@
 	  	<li role="presentation"><%= link_to 'MUNICIPALITIES', municipalities_path %></li>
 	  	<li role="presentation"><%= link_to 'DEPARTMENTS', departments_path %></li>
 	  	<!-- <li role="presentation"><%#= link_to 'REFERENCES', 'https://na24.lightning.force.com/one/one.app#/sObject/00O1a0000034gAEEAY/view?t=1464110148620' %></li> -->
-	  	<!-- <li role="presentation"><%= link_to 'RESOURCES', resources_path %></li> -->
-	  	<li role="presentation"><%= link_to 'MAP', 'http://maps.seamlesssell.com/maps/active/', :target => '_blank' %></li>
+	  	<li role="presentation"><%= link_to 'SALES RESOURCES', 'https://docs.google.com/document/d/165Wmykxt9Lf4Q1Hv93Sk1DCVbVKKgQMSqtoHf4y1o24' %></li>
+	  	<li role="presentation"><%= link_to 'GOOD SHIT', resources_path %></li>
+	  	
+	  	<li role="presentation"><%= link_to 'MAP', 'https://www.google.com/maps/d/u/0/viewer?hl=en&hl=en&authuser=0&authuser=0&mid=1b_KuCHr307HLwlyXxQ3livz1P-I', :target => '_blank' %></li>
 	  	<li role="presentation"><%= link_to 'PARALLEL UNIVERSE', 'http://cat.www2.seamlessdocs.com.meowbify.com/', :target => '_blank' %></li>
 	<% if user_signed_in? %>
 		<li class="pull-right" role="presentation"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>

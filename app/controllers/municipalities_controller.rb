@@ -9,6 +9,7 @@ class MunicipalitiesController < ApplicationController
       
       @municipality = Municipality.order(:name)
       @count = @municipality.count
+
       
 
       @active_count = Form.distinct.count('municipality_id')

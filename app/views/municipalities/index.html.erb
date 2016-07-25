@@ -64,11 +64,13 @@
 
   <tbody>
     <div class="form-group">
-      
+
+              
 
 
           <% @municipalities.sort { |a,b| a.state_id <=> b.state_id }.each do |municipality| %>
             <tr class="active">
+              
               <td><%= link_to municipality.name, municipality_path(municipality) %></td>
               <% if params[:state] == nil %>
                 <td><%= municipality.state.state %></td>  
